@@ -4,6 +4,11 @@
 	(generator_version "8.0")
 	(uuid "3b710599-b9c0-4419-afaf-5ca10da300b4")
 	(paper "USLedger")
+	(title_block
+		(title "TTL Calculator Logic Board")
+		(date "2025-02-12")
+		(rev "B")
+	)
 	(lib_symbols
 		(symbol "74xx1:74LS00"
 			(pin_names
@@ -24072,7 +24077,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1e13f29a-eb94-4625-af29-fa9064954213")
-		(property "Reference" "U23"
+		(property "Reference" "U35"
 			(at 201.93 134.62 0)
 			(effects
 				(font
@@ -24165,7 +24170,7 @@
 		(instances
 			(project "ttlcalc2"
 				(path "/3b710599-b9c0-4419-afaf-5ca10da300b4"
-					(reference "U23")
+					(reference "U35")
 					(unit 1)
 				)
 			)
@@ -24654,7 +24659,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "44040fc8-37d5-4dad-9c10-ffee4f196f51")
-		(property "Reference" "U35"
+		(property "Reference" "U23"
 			(at 120.3041 186.69 0)
 			(effects
 				(font
@@ -24762,7 +24767,7 @@
 		(instances
 			(project ""
 				(path "/3b710599-b9c0-4419-afaf-5ca10da300b4"
-					(reference "U35")
+					(reference "U23")
 					(unit 1)
 				)
 			)
