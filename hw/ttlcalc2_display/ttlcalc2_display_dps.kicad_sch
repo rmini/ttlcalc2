@@ -6,7 +6,7 @@
 	(paper "USLetter")
 	(title_block
 		(title "TTL Calculator Display Driver")
-		(date "2025-02-12")
+		(date "2025-02-14")
 		(rev "A")
 	)
 	(lib_symbols
@@ -2692,6 +2692,7 @@
 	)
 	(label "~{DP_4}"
 		(at 82.55 38.1 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2702,6 +2703,7 @@
 	)
 	(label "~{DP_11}"
 		(at 168.91 152.4 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2712,6 +2714,7 @@
 	)
 	(label "~{DP_4}"
 		(at 105.41 127 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2744,6 +2747,7 @@
 	)
 	(label "~{DP_10}"
 		(at 168.91 127 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2765,6 +2769,7 @@
 	)
 	(label "~{DP_6}"
 		(at 82.55 43.18 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2775,6 +2780,7 @@
 	)
 	(label "~{DP_3}"
 		(at 82.55 35.56 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2785,6 +2791,7 @@
 	)
 	(label "~{DP_0}"
 		(at 82.55 27.94 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2795,6 +2802,7 @@
 	)
 	(label "~{DP_5}"
 		(at 105.41 152.4 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2805,6 +2813,7 @@
 	)
 	(label "~{DP_2}"
 		(at 82.55 33.02 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2826,6 +2835,7 @@
 	)
 	(label "~{DP_1}"
 		(at 105.41 50.8 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2858,6 +2868,7 @@
 	)
 	(label "~{DP_2}"
 		(at 105.41 76.2 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2868,6 +2879,7 @@
 	)
 	(label "~{DP_0}"
 		(at 105.41 25.4 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2878,6 +2890,7 @@
 	)
 	(label "~{DP_1}"
 		(at 82.55 30.48 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2888,6 +2901,7 @@
 	)
 	(label "~{DP_3}"
 		(at 105.41 101.6 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2898,6 +2912,7 @@
 	)
 	(label "~{DP_11}"
 		(at 82.55 83.82 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2908,6 +2923,7 @@
 	)
 	(label "~{DP_7}"
 		(at 82.55 45.72 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2929,6 +2945,7 @@
 	)
 	(label "~{DP_9}"
 		(at 82.55 78.74 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2950,6 +2967,7 @@
 	)
 	(label "~{DP_10}"
 		(at 82.55 81.28 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2971,6 +2989,7 @@
 	)
 	(label "~{DP_5}"
 		(at 82.55 40.64 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2981,6 +3000,7 @@
 	)
 	(label "~{DP_8}"
 		(at 82.55 76.2 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3191,7 +3211,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "007dbc1b-b908-4c4d-8dbb-6684903b2a12")
-		(property "Reference" "U8"
+		(property "Reference" "U10"
 			(at 176.53 143.51 0)
 			(effects
 				(font
@@ -3279,7 +3299,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U8")
+					(reference "U10")
 					(unit 4)
 				)
 			)
@@ -3361,7 +3381,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "02d11c07-ee0e-4e73-99db-69e9a5b8fa52")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR028"
 			(at 138.43 138.43 0)
 			(effects
 				(font
@@ -3411,7 +3431,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR030")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -3427,7 +3447,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "04d99c99-6b16-4908-859c-f4626f48ab0d")
-		(property "Reference" "Q6"
+		(property "Reference" "Q11"
 			(at 204.47 151.1299 0)
 			(effects
 				(font
@@ -3487,7 +3507,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q6")
+					(reference "Q11")
 					(unit 1)
 				)
 			)
@@ -3503,7 +3523,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07a45978-3b9c-4905-a26b-d089cc236aa3")
-		(property "Reference" "U9"
+		(property "Reference" "U8"
 			(at 72.0441 20.32 0)
 			(effects
 				(font
@@ -3599,7 +3619,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U9")
+					(reference "U8")
 					(unit 1)
 				)
 			)
@@ -3615,7 +3635,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "08149914-c571-4dea-9366-816a6c5eabb1")
-		(property "Reference" "U?"
+		(property "Reference" "U11"
 			(at 177.8 41.91 0)
 			(effects
 				(font
@@ -3703,7 +3723,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U?")
+					(reference "U11")
 					(unit 6)
 				)
 			)
@@ -3719,7 +3739,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c4ee2da-93ff-423c-805d-cc9ca54fc3ca")
-		(property "Reference" "R?"
+		(property "Reference" "R14"
 			(at 190.5 19.05 90)
 			(effects
 				(font
@@ -3735,7 +3755,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 190.754 24.384 90)
 			(effects
 				(font
@@ -3771,7 +3791,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R?")
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -3787,7 +3807,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11921a75-6182-473e-a935-f7c72474ce48")
-		(property "Reference" "U8"
+		(property "Reference" "U10"
 			(at 176.53 118.11 0)
 			(effects
 				(font
@@ -3875,7 +3895,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U8")
+					(reference "U10")
 					(unit 3)
 				)
 			)
@@ -3891,7 +3911,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "16b9fca0-cd57-4a25-b404-27596c51ea45")
-		(property "Reference" "U8"
+		(property "Reference" "U10"
 			(at 113.03 67.31 0)
 			(effects
 				(font
@@ -3979,7 +3999,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U8")
+					(reference "U10")
 					(unit 1)
 				)
 			)
@@ -3995,7 +4015,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19372a44-0838-4154-8ec8-b1b522847801")
-		(property "Reference" "R?"
+		(property "Reference" "R17"
 			(at 190.5 95.25 90)
 			(effects
 				(font
@@ -4011,7 +4031,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 190.754 100.584 90)
 			(effects
 				(font
@@ -4047,7 +4067,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R?")
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -4063,7 +4083,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1aa62aa0-5ff9-4d0d-af91-a4a8940589d9")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR024"
 			(at 138.43 36.83 0)
 			(effects
 				(font
@@ -4113,7 +4133,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR021")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -4129,7 +4149,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "23ab1219-3a3b-4c19-8fe8-938d16e603a9")
-		(property "Reference" "U?"
+		(property "Reference" "U11"
 			(at 177.8 92.71 0)
 			(effects
 				(font
@@ -4217,7 +4237,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U?")
+					(reference "U11")
 					(unit 2)
 				)
 			)
@@ -4233,7 +4253,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "262e66e7-4b12-4e54-b5e5-641e3d359aa3")
-		(property "Reference" "Q5"
+		(property "Reference" "Q10"
 			(at 204.47 125.7299 0)
 			(effects
 				(font
@@ -4293,7 +4313,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q5")
+					(reference "Q10")
 					(unit 1)
 				)
 			)
@@ -4309,7 +4329,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ae3ab7e-43b9-4658-87fd-a759e99e193b")
-		(property "Reference" "U10"
+		(property "Reference" "U9"
 			(at 72.0441 68.58 0)
 			(effects
 				(font
@@ -4405,7 +4425,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U10")
+					(reference "U9")
 					(unit 1)
 				)
 			)
@@ -4421,7 +4441,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "38889f27-2212-453f-95ad-14e30be4607b")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR030"
 			(at 201.93 138.43 0)
 			(effects
 				(font
@@ -4471,7 +4491,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR022")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -4487,7 +4507,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "38bce933-763a-4043-bb73-b8377832e9c1")
-		(property "Reference" "U8"
+		(property "Reference" "U10"
 			(at 113.03 16.51 0)
 			(effects
 				(font
@@ -4575,7 +4595,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U8")
+					(reference "U10")
 					(unit 5)
 				)
 			)
@@ -4591,7 +4611,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4015edcf-ea8b-4aaa-9b1d-28992b5a03d5")
-		(property "Reference" "Q?"
+		(property "Reference" "Q15"
 			(at 205.74 100.3299 0)
 			(effects
 				(font
@@ -4651,7 +4671,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q?")
+					(reference "Q15")
 					(unit 1)
 				)
 			)
@@ -4667,7 +4687,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "406be0a7-c4a8-46ec-97ec-4b58ea643b3a")
-		(property "Reference" "Q8"
+		(property "Reference" "Q6"
 			(at 140.97 74.9299 0)
 			(effects
 				(font
@@ -4727,7 +4747,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q8")
+					(reference "Q6")
 					(unit 1)
 				)
 			)
@@ -4743,7 +4763,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4659caad-2026-4390-8ec6-30c22084d95f")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR029"
 			(at 138.43 163.83 0)
 			(effects
 				(font
@@ -4793,7 +4813,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR031")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -4901,7 +4921,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 125.984 24.384 90)
 			(effects
 				(font
@@ -4953,7 +4973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5cfa140a-6861-4443-98e9-0d2575651678")
-		(property "Reference" "Q?"
+		(property "Reference" "Q12"
 			(at 205.74 24.1299 0)
 			(effects
 				(font
@@ -5013,7 +5033,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q?")
+					(reference "Q12")
 					(unit 1)
 				)
 			)
@@ -5029,7 +5049,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "603cba6a-1f8d-4d97-9205-82e6eb9c48e6")
-		(property "Reference" "U?"
+		(property "Reference" "U11"
 			(at 177.8 16.51 0)
 			(effects
 				(font
@@ -5117,7 +5137,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U?")
+					(reference "U11")
 					(unit 5)
 				)
 			)
@@ -5133,7 +5153,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "665b1372-3214-44b3-8057-b436448fa8ae")
-		(property "Reference" "U8"
+		(property "Reference" "U10"
 			(at 113.03 92.71 0)
 			(effects
 				(font
@@ -5221,7 +5241,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U8")
+					(reference "U10")
 					(unit 2)
 				)
 			)
@@ -5303,7 +5323,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6a447e24-f0f6-4ac4-a8e0-d933a5f9199f")
-		(property "Reference" "R10"
+		(property "Reference" "R8"
 			(at 125.73 69.85 90)
 			(effects
 				(font
@@ -5319,7 +5339,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 125.984 75.184 90)
 			(effects
 				(font
@@ -5355,7 +5375,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R10")
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -5371,7 +5391,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6b4b3004-d780-4ce9-85eb-c81c846f1fe1")
-		(property "Reference" "Q?"
+		(property "Reference" "Q14"
 			(at 205.74 74.9299 0)
 			(effects
 				(font
@@ -5431,7 +5451,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q?")
+					(reference "Q14")
 					(unit 1)
 				)
 			)
@@ -5447,7 +5467,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "73f25453-2b32-40ed-a65a-d5b542f95b0d")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR027"
 			(at 138.43 113.03 0)
 			(effects
 				(font
@@ -5497,7 +5517,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR029")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -5513,7 +5533,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7b447b4a-deaf-4763-8de8-1b0e69f9e3bd")
-		(property "Reference" "Q9"
+		(property "Reference" "Q7"
 			(at 140.97 100.3299 0)
 			(effects
 				(font
@@ -5573,7 +5593,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q9")
+					(reference "Q7")
 					(unit 1)
 				)
 			)
@@ -5693,7 +5713,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7e0a7c97-c612-4fbe-9f43-086d7999c629")
-		(property "Reference" "Q?"
+		(property "Reference" "Q13"
 			(at 205.74 49.5299 0)
 			(effects
 				(font
@@ -5753,7 +5773,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q?")
+					(reference "Q13")
 					(unit 1)
 				)
 			)
@@ -5769,7 +5789,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "80094220-366d-47a0-8880-798dbe0f514d")
-		(property "Reference" "U8"
+		(property "Reference" "U10"
 			(at 113.03 41.91 0)
 			(effects
 				(font
@@ -5857,7 +5877,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U8")
+					(reference "U10")
 					(unit 6)
 				)
 			)
@@ -5873,7 +5893,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "85507348-828a-44af-b083-8aff91d96a75")
-		(property "Reference" "R8"
+		(property "Reference" "R13"
 			(at 189.23 146.05 90)
 			(effects
 				(font
@@ -5889,7 +5909,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 189.484 151.384 90)
 			(effects
 				(font
@@ -5925,7 +5945,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R8")
+					(reference "R13")
 					(unit 1)
 				)
 			)
@@ -6073,7 +6093,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "97128c36-34db-4e46-bc13-67fa87402c22")
-		(property "Reference" "Q10"
+		(property "Reference" "Q8"
 			(at 140.97 125.7299 0)
 			(effects
 				(font
@@ -6133,7 +6153,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q10")
+					(reference "Q8")
 					(unit 1)
 				)
 			)
@@ -6149,7 +6169,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "977611cc-ab13-4db0-8734-9d50361b5b9d")
-		(property "Reference" "R12"
+		(property "Reference" "R10"
 			(at 125.73 120.65 90)
 			(effects
 				(font
@@ -6165,7 +6185,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 125.984 125.984 90)
 			(effects
 				(font
@@ -6201,7 +6221,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R12")
+					(reference "R10")
 					(unit 1)
 				)
 			)
@@ -6217,7 +6237,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a2887973-7feb-4405-9b73-f78921ea3af6")
-		(property "Reference" "R?"
+		(property "Reference" "R16"
 			(at 190.5 69.85 90)
 			(effects
 				(font
@@ -6233,7 +6253,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 190.754 75.184 90)
 			(effects
 				(font
@@ -6269,7 +6289,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R?")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -6351,7 +6371,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a56ae176-b00a-423e-9416-814d29364049")
-		(property "Reference" "R7"
+		(property "Reference" "R12"
 			(at 189.23 120.65 90)
 			(effects
 				(font
@@ -6367,7 +6387,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 189.484 125.984 90)
 			(effects
 				(font
@@ -6403,7 +6423,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R7")
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -6523,7 +6543,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a9428012-a536-4fae-9804-fa7cced0000b")
-		(property "Reference" "R?"
+		(property "Reference" "R15"
 			(at 190.5 44.45 90)
 			(effects
 				(font
@@ -6539,7 +6559,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 190.754 49.784 90)
 			(effects
 				(font
@@ -6575,7 +6595,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R?")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -6591,7 +6611,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aace9d32-6859-4f8c-9f20-a38d1a94ec51")
-		(property "Reference" "R13"
+		(property "Reference" "R11"
 			(at 125.73 146.05 90)
 			(effects
 				(font
@@ -6607,7 +6627,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 125.984 151.384 90)
 			(effects
 				(font
@@ -6643,7 +6663,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R13")
+					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -6659,7 +6679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "af379455-e10c-4cb1-959a-19b26564b8d7")
-		(property "Reference" "Q7"
+		(property "Reference" "Q5"
 			(at 140.97 49.5299 0)
 			(effects
 				(font
@@ -6719,7 +6739,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q7")
+					(reference "Q5")
 					(unit 1)
 				)
 			)
@@ -6735,7 +6755,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b3bbfff6-4b2f-42df-9e55-188bda4e6661")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR022"
 			(at 69.85 72.39 0)
 			(effects
 				(font
@@ -6785,7 +6805,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR026")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -6801,7 +6821,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bd069c18-24e4-45c1-8249-8d7a38027b14")
-		(property "Reference" "U?"
+		(property "Reference" "U11"
 			(at 177.8 67.31 0)
 			(effects
 				(font
@@ -6889,7 +6909,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "U?")
+					(reference "U11")
 					(unit 1)
 				)
 			)
@@ -6905,7 +6925,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bde7ae96-b4b4-4b5c-8b33-ac95019fb7c0")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR031"
 			(at 201.93 163.83 0)
 			(effects
 				(font
@@ -6955,7 +6975,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR024")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -6971,7 +6991,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c15d42ac-d16b-4d63-be83-1f5967c2925b")
-		(property "Reference" "R9"
+		(property "Reference" "R7"
 			(at 125.73 44.45 90)
 			(effects
 				(font
@@ -6987,7 +7007,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 125.984 49.784 90)
 			(effects
 				(font
@@ -7023,7 +7043,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R9")
+					(reference "R7")
 					(unit 1)
 				)
 			)
@@ -7039,7 +7059,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cf073118-b1be-4f6b-b151-e71a6550520e")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR021"
 			(at 69.85 59.69 0)
 			(effects
 				(font
@@ -7089,7 +7109,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR023")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -7171,7 +7191,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8e3db29-3a54-4081-8d1c-5469d5718921")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR026"
 			(at 138.43 87.63 0)
 			(effects
 				(font
@@ -7221,7 +7241,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR027")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -7237,7 +7257,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eb162412-d5d8-411c-aa77-00fee512bbdb")
-		(property "Reference" "Q11"
+		(property "Reference" "Q9"
 			(at 140.97 151.1299 0)
 			(effects
 				(font
@@ -7297,7 +7317,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "Q11")
+					(reference "Q9")
 					(unit 1)
 				)
 			)
@@ -7313,7 +7333,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f2060805-c52a-4ec8-8373-86653b4aab53")
-		(property "Reference" "R11"
+		(property "Reference" "R9"
 			(at 125.73 95.25 90)
 			(effects
 				(font
@@ -7329,7 +7349,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 			(at 125.984 100.584 90)
 			(effects
 				(font
@@ -7365,7 +7385,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "R11")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -7381,7 +7401,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f66125be-b3b5-4d2a-9e95-a344f4d8a0a5")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR023"
 			(at 69.85 107.95 0)
 			(effects
 				(font
@@ -7431,7 +7451,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/b9e782f1-dac7-4337-bd3b-87276e894074"
-					(reference "#PWR028")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
