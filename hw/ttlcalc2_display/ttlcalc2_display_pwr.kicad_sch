@@ -2331,6 +2331,12 @@
 		(uuid "569601e3-0aa3-48fd-a77b-08c3f9f0baa2")
 	)
 	(junction
+		(at 199.39 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5bb62020-18d8-4e69-b8be-a078a93fedda")
+	)
+	(junction
 		(at 228.6 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2449,6 +2455,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "be28a5fa-17e1-4c59-830d-35720e362a2f")
+	)
+	(junction
+		(at 199.39 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c001feb4-6149-4ca7-a377-b4b1625519bd")
 	)
 	(junction
 		(at 76.2 76.2)
@@ -2623,6 +2635,16 @@
 			(type default)
 		)
 		(uuid "2d2297eb-cb4e-4f3d-965c-e395dfca35b5")
+	)
+	(wire
+		(pts
+			(xy 199.39 76.2) (xy 209.55 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3946e580-2411-4fd4-b2e5-04396333f919")
 	)
 	(wire
 		(pts
@@ -2976,6 +2998,16 @@
 	)
 	(wire
 		(pts
+			(xy 199.39 83.82) (xy 209.55 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbd88aa4-d615-40b8-9d0d-02da8c6ffc53")
+	)
+	(wire
+		(pts
 			(xy 25.4 83.82) (xy 35.56 83.82)
 		)
 		(stroke
@@ -3111,6 +3143,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VCC")
+		(at 199.39 24.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0374a600-47cf-4983-9a57-9f425c386f05")
+		(property "Reference" "#PWR0100"
+			(at 199.39 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 199.39 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 199.39 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6141bf45-de8c-490e-9689-683f8c332e75")
+		)
+		(instances
+			(project "ttlcalc2_display"
+				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
+					(reference "#PWR0100")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 168.91 80.01 0)
 		(unit 1)
@@ -3138,7 +3236,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 169.8752 83.82 0)
 			(effects
 				(font
@@ -3208,7 +3306,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 87.3252 83.82 0)
 			(effects
 				(font
@@ -3516,7 +3614,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 97.4852 83.82 0)
 			(effects
 				(font
@@ -3619,6 +3717,72 @@
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
 					(reference "#PWR082")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 199.39 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1f34d019-bcba-4d00-a683-8c20a7432f3a")
+		(property "Reference" "#PWR0101"
+			(at 199.39 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 199.39 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 199.39 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e1a0d6c-0c99-4af3-bf98-5a09b870a434")
+		)
+		(instances
+			(project "ttlcalc2_display"
+				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -3824,7 +3988,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 77.1652 83.82 0)
 			(effects
 				(font
@@ -3894,7 +4058,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 36.5252 83.82 0)
 			(effects
 				(font
@@ -3964,7 +4128,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 67.0052 83.82 0)
 			(effects
 				(font
@@ -4416,6 +4580,112 @@
 		)
 	)
 	(symbol
+		(lib_id "74xx:74LS04")
+		(at 199.39 36.83 0)
+		(unit 7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5a772f86-0473-43df-9239-20054f48426e")
+		(property "Reference" "U19"
+			(at 205.74 35.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "74LS04"
+			(at 205.74 38.0999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-14_W7.62mm"
+			(at 199.39 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/gpn/sn74LS04"
+			(at 199.39 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Hex Inverter"
+			(at 199.39 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "12"
+			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7b")
+		)
+		(pin "11"
+			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4b")
+		)
+		(pin "13"
+			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24d9")
+		)
+		(pin "8"
+			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b4")
+		)
+		(pin "9"
+			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486a")
+		)
+		(pin "14"
+			(uuid "f6b3ac44-bd40-490b-873f-06a8b0408df5")
+		)
+		(pin "1"
+			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61df")
+		)
+		(pin "10"
+			(uuid "b179c9aa-98f3-426e-a385-c685aa11208a")
+		)
+		(pin "3"
+			(uuid "57495da5-cc22-4b1c-8749-3ca978aa245f")
+		)
+		(pin "5"
+			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e1")
+		)
+		(pin "6"
+			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc257")
+		)
+		(pin "7"
+			(uuid "da6fe87a-55be-415d-bf76-5130261feca7")
+		)
+		(pin "4"
+			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa72248")
+		)
+		(pin "2"
+			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3df")
+		)
+		(instances
+			(project "ttlcalc2_display"
+				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
+					(reference "U19")
+					(unit 7)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 128.27 80.01 0)
 		(unit 1)
@@ -4443,7 +4713,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 129.2352 83.82 0)
 			(effects
 				(font
@@ -4645,7 +4915,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 180.0352 83.82 0)
 			(effects
 				(font
@@ -4781,7 +5051,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 119.0752 83.82 0)
 			(effects
 				(font
@@ -4890,6 +5160,76 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 209.55 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "954b8873-723b-4cc9-829c-f4ae72ec815e")
+		(property "Reference" "C19"
+			(at 213.36 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C"
+			(at 213.36 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
+			(at 210.5152 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 209.55 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 209.55 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fe3f8b2a-7263-4b14-922b-6cbe86db46b5")
+		)
+		(pin "2"
+			(uuid "0a38119c-513a-446a-938a-45785ebb46c5")
+		)
+		(instances
+			(project "ttlcalc2_display"
+				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 158.75 80.01 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4916,7 +5256,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 159.7152 83.82 0)
 			(effects
 				(font
@@ -5052,7 +5392,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 190.1952 83.82 0)
 			(effects
 				(font
@@ -5188,7 +5528,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 139.3952 83.82 0)
 			(effects
 				(font
@@ -5352,46 +5692,46 @@
 			)
 		)
 		(pin "12"
-			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7b")
+			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7c")
 		)
 		(pin "11"
-			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4b")
+			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4c")
 		)
 		(pin "13"
-			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24d9")
+			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24da")
 		)
 		(pin "8"
-			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b4")
+			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b5")
 		)
 		(pin "9"
-			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486a")
+			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486b")
 		)
 		(pin "14"
 			(uuid "244d5779-a47d-4faa-8344-e7868026c8cc")
 		)
 		(pin "1"
-			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61df")
+			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61e0")
 		)
 		(pin "10"
-			(uuid "b179c9aa-98f3-426e-a385-c685aa11208a")
+			(uuid "b179c9aa-98f3-426e-a385-c685aa11208b")
 		)
 		(pin "3"
-			(uuid "57495da5-cc22-4b1c-8749-3ca978aa245f")
+			(uuid "57495da5-cc22-4b1c-8749-3ca978aa2460")
 		)
 		(pin "5"
-			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e1")
+			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e2")
 		)
 		(pin "6"
-			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc257")
+			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc258")
 		)
 		(pin "7"
 			(uuid "6877a92c-f6cd-41ec-8d91-c8f1118c3035")
 		)
 		(pin "4"
-			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa72248")
+			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa72249")
 		)
 		(pin "2"
-			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3df")
+			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3e0")
 		)
 		(instances
 			(project "ttlcalc2_display"
@@ -5430,7 +5770,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 26.3652 83.82 0)
 			(effects
 				(font
@@ -5540,16 +5880,16 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 242.57 138.43 0)
+		(at 242.57 140.97 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c0ca460b-e65d-4026-9d59-759bc609547d")
 		(property "Reference" "J4"
-			(at 245.11 138.4299 0)
+			(at 245.11 140.9701 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5558,7 +5898,7 @@
 			)
 		)
 		(property "Value" "HV_PWR"
-			(at 245.11 140.9699 0)
+			(at 245.11 138.4301 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5567,7 +5907,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
-			(at 242.57 138.43 0)
+			(at 242.57 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5576,7 +5916,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 242.57 138.43 0)
+			(at 242.57 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5585,7 +5925,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 242.57 138.43 0)
+			(at 242.57 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5618,7 +5958,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c6cad12c-a5e4-4fc2-b45a-cc038690418a")
-		(property "Reference" "C20"
+		(property "Reference" "C101"
 			(at 214.63 142.8749 0)
 			(effects
 				(font
@@ -5672,7 +6012,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
-					(reference "C20")
+					(reference "C101")
 					(unit 1)
 				)
 			)
@@ -5951,7 +6291,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cf2d3d0e-0fb5-4c8f-8b86-fa4253c663da")
-		(property "Reference" "C19"
+		(property "Reference" "C100"
 			(at 214.63 114.9349 0)
 			(effects
 				(font
@@ -5960,7 +6300,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1000u"
+		(property "Value" "100u"
 			(at 214.63 117.4749 0)
 			(effects
 				(font
@@ -5969,7 +6309,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 210.82 116.84 0)
 			(effects
 				(font
@@ -6005,7 +6345,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc/bbab562b-1662-4bba-86e9-b87ed8790691"
-					(reference "C19")
+					(reference "C100")
 					(unit 1)
 				)
 			)
@@ -6039,7 +6379,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 56.8452 83.82 0)
 			(effects
 				(font
@@ -6083,16 +6423,16 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 242.57 110.49 0)
+		(at 242.57 113.03 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d76a3778-5e86-49f7-a29f-452ce1074257")
 		(property "Reference" "J3"
-			(at 245.11 110.4899 0)
+			(at 245.11 113.0301 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6101,7 +6441,7 @@
 			)
 		)
 		(property "Value" "5V_PWR"
-			(at 245.11 113.0299 0)
+			(at 245.11 110.4901 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6110,7 +6450,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
-			(at 242.57 110.49 0)
+			(at 242.57 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6119,7 +6459,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 242.57 110.49 0)
+			(at 242.57 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6128,7 +6468,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 242.57 110.49 0)
+			(at 242.57 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6179,7 +6519,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 149.5552 83.82 0)
 			(effects
 				(font
@@ -6277,46 +6617,46 @@
 			)
 		)
 		(pin "12"
-			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7c")
+			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7d")
 		)
 		(pin "11"
-			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4c")
+			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4d")
 		)
 		(pin "13"
-			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24da")
+			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24db")
 		)
 		(pin "8"
-			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b5")
+			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b6")
 		)
 		(pin "9"
-			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486b")
+			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486c")
 		)
 		(pin "14"
 			(uuid "24bb2919-fd9e-4b79-809d-4f10a8acb557")
 		)
 		(pin "1"
-			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61e0")
+			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61e1")
 		)
 		(pin "10"
-			(uuid "b179c9aa-98f3-426e-a385-c685aa11208b")
+			(uuid "b179c9aa-98f3-426e-a385-c685aa11208c")
 		)
 		(pin "3"
-			(uuid "57495da5-cc22-4b1c-8749-3ca978aa2460")
+			(uuid "57495da5-cc22-4b1c-8749-3ca978aa2461")
 		)
 		(pin "5"
-			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e2")
+			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e3")
 		)
 		(pin "6"
-			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc258")
+			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc259")
 		)
 		(pin "7"
 			(uuid "24e75dc8-9b13-407b-88a7-b8b21f322ed4")
 		)
 		(pin "4"
-			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa72249")
+			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa7224a")
 		)
 		(pin "2"
-			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3e0")
+			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3e1")
 		)
 		(instances
 			(project "ttlcalc2_display"
@@ -6449,46 +6789,46 @@
 			)
 		)
 		(pin "12"
-			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7d")
+			(uuid "a50a512f-5584-4ce5-bdad-af19577b3d7e")
 		)
 		(pin "11"
-			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4d")
+			(uuid "f13db430-d222-4d1f-967a-bafe8d9bcb4e")
 		)
 		(pin "13"
-			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24db")
+			(uuid "3e12313a-6ac3-4b82-818e-1a9dd18f24dc")
 		)
 		(pin "8"
-			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b6")
+			(uuid "b0841048-b049-4c07-a2e4-b6d11fd1b2b7")
 		)
 		(pin "9"
-			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486c")
+			(uuid "02ae9725-8159-46f3-be96-e6d82d3b486d")
 		)
 		(pin "14"
 			(uuid "194acad9-e2a6-45ea-a9ac-80aad8c063d9")
 		)
 		(pin "1"
-			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61e1")
+			(uuid "0d7c16f4-35f3-42a9-abe1-3488a6be61e2")
 		)
 		(pin "10"
-			(uuid "b179c9aa-98f3-426e-a385-c685aa11208c")
+			(uuid "b179c9aa-98f3-426e-a385-c685aa11208d")
 		)
 		(pin "3"
-			(uuid "57495da5-cc22-4b1c-8749-3ca978aa2461")
+			(uuid "57495da5-cc22-4b1c-8749-3ca978aa2462")
 		)
 		(pin "5"
-			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e3")
+			(uuid "1bda2555-2b10-403d-910a-f0d8b659c5e4")
 		)
 		(pin "6"
-			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc259")
+			(uuid "f391c2ba-b192-4611-a5a0-cc962a0bc25a")
 		)
 		(pin "7"
 			(uuid "ec4e92cc-78fe-4ec7-bc8e-e3dc4a39630f")
 		)
 		(pin "4"
-			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa7224a")
+			(uuid "2130ab07-9bcb-4d8e-ad7f-66ae8fa7224b")
 		)
 		(pin "2"
-			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3e1")
+			(uuid "619c7a5e-62db-4a1c-8f2d-135dcc8fb3e2")
 		)
 		(instances
 			(project "ttlcalc2_display"
@@ -6527,7 +6867,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 200.3552 83.82 0)
 			(effects
 				(font
@@ -6597,7 +6937,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 46.6852 83.82 0)
 			(effects
 				(font
@@ -6799,7 +7139,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal"
 			(at 108.9152 83.82 0)
 			(effects
 				(font

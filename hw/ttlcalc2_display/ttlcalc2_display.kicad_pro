@@ -51,7 +51,13 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -171,7 +177,10 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.635
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -198,7 +207,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -438,7 +452,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.4,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -452,14 +466,185 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.4,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "HV",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "wire_width": 8
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Logic",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "wire_width": 6
       }
     ],
     "meta": {
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_assignments": {
+      "Net-(J2-Pin_21)": "Logic",
+      "Net-(R11-Pad1)": "Logic",
+      "Net-(R17-Pad1)": "Logic",
+      "Net-(R18-Pad1)": "Logic",
+      "Net-(R19-Pad1)": "Logic",
+      "Net-(R20-Pad1)": "Logic",
+      "Net-(R21-Pad1)": "Logic",
+      "Net-(R22-Pad1)": "Logic",
+      "Net-(R23-Pad1)": "Logic",
+      "Net-(R24-Pad1)": "Logic",
+      "Net-(R25-Pad1)": "Logic",
+      "Net-(R26-Pad1)": "Logic",
+      "Net-(R9-Pad1)": "Logic",
+      "Net-(U1-O0)": "Logic",
+      "Net-(U6-Pad10)": "Logic",
+      "Net-(U6-Pad3)": "Logic",
+      "unconnected-(J2-Pin_19-Pad19)": "Logic",
+      "unconnected-(J2-Pin_23-Pad23)": "Logic",
+      "unconnected-(J2-Pin_25-Pad25)": "Logic",
+      "unconnected-(J2-Pin_27-Pad27)": "Logic",
+      "unconnected-(J2-Pin_29-Pad29)": "Logic",
+      "unconnected-(J2-Pin_31-Pad31)": "Logic",
+      "unconnected-(U1-O1-Pad14)": "Logic",
+      "unconnected-(U1-O2-Pad13)": "Logic",
+      "unconnected-(U1-O3-Pad12)": "Logic",
+      "unconnected-(U1-O4-Pad11)": "Logic",
+      "unconnected-(U1-O5-Pad10)": "Logic",
+      "unconnected-(U1-O6-Pad9)": "Logic",
+      "unconnected-(U1-O7-Pad7)": "Logic",
+      "unconnected-(U10-Pad10)": "Logic",
+      "unconnected-(U10-Pad12)": "Logic",
+      "unconnected-(U19-Pad10)": "Logic",
+      "unconnected-(U19-Pad12)": "Logic",
+      "unconnected-(U19-Pad6)": "Logic",
+      "unconnected-(U19-Pad8)": "Logic",
+      "unconnected-(U2-O4-Pad11)": "Logic",
+      "unconnected-(U2-O5-Pad10)": "Logic",
+      "unconnected-(U2-O6-Pad9)": "Logic",
+      "unconnected-(U2-O7-Pad7)": "Logic",
+      "unconnected-(U9-O4-Pad11)": "Logic",
+      "unconnected-(U9-O5-Pad10)": "Logic",
+      "unconnected-(U9-O6-Pad9)": "Logic",
+      "unconnected-(U9-O7-Pad7)": "Logic"
+    },
+    "netclass_patterns": [
+      {
+        "netclass": "HV",
+        "pattern": "/NXA_*"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "/NXC_*"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "/NE_*"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "/DP_*"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "HT"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/Decimal Point Drive/~{DP_*}"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/Decimal Point Drive/DPSEL*"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/BUSY"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/ERR"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/NEG_E"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/NEG_F"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "CLK2"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "DO*"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/NXSEL*"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/Nixie Anode Drive/~{NX_D*}"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/Nixie Anode Drive/~{EN}"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "MA*"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "~{WIO}"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/Nixie Cathode Drive/NXD*"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/Nixie Cathode Drive/~{NX*}"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "VCC"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Logic",
+        "pattern": "/~{EN_*}"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
