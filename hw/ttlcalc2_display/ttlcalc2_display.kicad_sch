@@ -11078,7 +11078,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "05d813cb-5cef-4216-845e-df927555070f")
-		(property "Reference" "U7"
+		(property "Reference" "U18"
 			(at 270.1641 118.11 0)
 			(effects
 				(font
@@ -11174,7 +11174,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U7")
+					(reference "U18")
 					(unit 1)
 				)
 			)
@@ -11322,7 +11322,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "169c0106-b172-43e0-8d85-83285741a8fc")
-		(property "Reference" "U3"
+		(property "Reference" "U1"
 			(at 169.8341 26.67 0)
 			(effects
 				(font
@@ -11418,7 +11418,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U3")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -11434,7 +11434,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "16dac86c-0988-4bd3-a0b8-288978aac61c")
-		(property "Reference" "U6"
+		(property "Reference" "U17"
 			(at 245.1017 44.45 0)
 			(effects
 				(font
@@ -11522,7 +11522,7 @@
 		(instances
 			(project ""
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U6")
+					(reference "U17")
 					(unit 1)
 				)
 			)
@@ -11602,7 +11602,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19256dae-de38-4e8c-8feb-bccb2e9e5202")
-		(property "Reference" "U19"
+		(property "Reference" "U13"
 			(at 78.74 220.98 0)
 			(effects
 				(font
@@ -11690,7 +11690,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U19")
+					(reference "U13")
 					(unit 4)
 				)
 			)
@@ -11706,7 +11706,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1fcfd669-52bd-4640-920b-92465d9cddd0")
-		(property "Reference" "R4"
+		(property "Reference" "R16"
 			(at 280.67 227.33 90)
 			(effects
 				(font
@@ -11758,7 +11758,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "R4")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -11840,7 +11840,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "235497b0-d888-4111-b1d2-8ed042070ca5")
-		(property "Reference" "R2"
+		(property "Reference" "R15"
 			(at 280.67 186.69 90)
 			(effects
 				(font
@@ -11892,7 +11892,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "R2")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -11908,7 +11908,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2843c8ad-badc-4988-b8ff-26b730fc2ab5")
-		(property "Reference" "U2"
+		(property "Reference" "U9"
 			(at 111.4141 133.35 0)
 			(effects
 				(font
@@ -12004,7 +12004,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U2")
+					(reference "U9")
 					(unit 1)
 				)
 			)
@@ -12202,7 +12202,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f070d42-6ad2-44a8-ba7b-605e43ec0d75")
-		(property "Reference" "U6"
+		(property "Reference" "U17"
 			(at 383.5317 193.04 0)
 			(effects
 				(font
@@ -12290,7 +12290,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U6")
+					(reference "U17")
 					(unit 4)
 				)
 			)
@@ -12306,7 +12306,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f1961de-5f41-4826-ace5-5eda42fb67a4")
-		(property "Reference" "U10"
+		(property "Reference" "U5"
 			(at 45.72 220.98 0)
 			(effects
 				(font
@@ -12394,7 +12394,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U10")
+					(reference "U5")
 					(unit 6)
 				)
 			)
@@ -12410,7 +12410,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33046350-97c2-4090-b6e3-7f27f29b685f")
-		(property "Reference" "Q2"
+		(property "Reference" "Q1"
 			(at 295.91 191.7699 0)
 			(effects
 				(font
@@ -12470,7 +12470,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "Q2")
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -12552,7 +12552,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3e1245d6-0b34-486a-9f42-e017d6dfa292")
-		(property "Reference" "U1"
+		(property "Reference" "U16"
 			(at 51.7241 133.35 0)
 			(effects
 				(font
@@ -12648,7 +12648,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U1")
+					(reference "U16")
 					(unit 1)
 				)
 			)
@@ -12664,7 +12664,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "512fdcd4-7c3d-4f98-8714-8745d8432e81")
-		(property "Reference" "U19"
+		(property "Reference" "U13"
 			(at 78.74 205.74 0)
 			(effects
 				(font
@@ -12752,7 +12752,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U19")
+					(reference "U13")
 					(unit 3)
 				)
 			)
@@ -12834,7 +12834,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5dd76b76-f21d-4f85-942e-9e52c26b12dd")
-		(property "Reference" "U6"
+		(property "Reference" "U17"
 			(at 245.1017 59.69 0)
 			(effects
 				(font
@@ -12922,7 +12922,7 @@
 		(instances
 			(project ""
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U6")
+					(reference "U17")
 					(unit 2)
 				)
 			)
@@ -13004,7 +13004,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6bdc2b61-8915-4b37-a7e1-b5bc62641fdf")
-		(property "Reference" "U10"
+		(property "Reference" "U5"
 			(at 45.72 205.74 0)
 			(effects
 				(font
@@ -13092,7 +13092,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U10")
+					(reference "U5")
 					(unit 5)
 				)
 			)
@@ -13174,7 +13174,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "78230b45-b6cd-4e38-88f7-ebfaee0cd685")
-		(property "Reference" "Q3"
+		(property "Reference" "Q24"
 			(at 295.91 212.0899 0)
 			(effects
 				(font
@@ -13234,7 +13234,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "Q3")
+					(reference "Q24")
 					(unit 1)
 				)
 			)
@@ -13250,7 +13250,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c75e295-6777-406f-9de7-12da7a459b90")
-		(property "Reference" "U5"
+		(property "Reference" "U4"
 			(at 219.3641 182.88 0)
 			(effects
 				(font
@@ -13346,7 +13346,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U5")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -13428,7 +13428,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "81656450-0ab7-4b75-b1c2-854d9d193203")
-		(property "Reference" "Q4"
+		(property "Reference" "Q11"
 			(at 295.91 232.4099 0)
 			(effects
 				(font
@@ -13488,7 +13488,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "Q4")
+					(reference "Q11")
 					(unit 1)
 				)
 			)
@@ -13570,7 +13570,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "84570c00-aa47-463b-afc9-2703fe110783")
-		(property "Reference" "H4"
+		(property "Reference" "H6"
 			(at 271.78 251.4599 0)
 			(effects
 				(font
@@ -13618,7 +13618,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "H4")
+					(reference "H6")
 					(unit 1)
 				)
 			)
@@ -13635,7 +13635,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8b889dbe-a382-48a7-818d-edbfb8eeb721")
-		(property "Reference" "J2"
+		(property "Reference" "J4"
 			(at 355.6 172.72 0)
 			(effects
 				(font
@@ -13801,7 +13801,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "J2")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -14143,7 +14143,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c006158c-8419-4997-a118-4eb07a383159")
-		(property "Reference" "U19"
+		(property "Reference" "U13"
 			(at 106.68 220.98 0)
 			(effects
 				(font
@@ -14231,7 +14231,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U19")
+					(reference "U13")
 					(unit 6)
 				)
 			)
@@ -14313,7 +14313,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c862fefa-3b77-4ccd-8138-869f7fc35198")
-		(property "Reference" "U19"
+		(property "Reference" "U13"
 			(at 106.68 205.74 0)
 			(effects
 				(font
@@ -14401,7 +14401,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U19")
+					(reference "U13")
 					(unit 5)
 				)
 			)
@@ -14483,7 +14483,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d188aa24-bfb2-42a1-94f6-c50b5b596f75")
-		(property "Reference" "U4"
+		(property "Reference" "U19"
 			(at 218.0941 74.93 0)
 			(effects
 				(font
@@ -14579,7 +14579,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U4")
+					(reference "U19")
 					(unit 1)
 				)
 			)
@@ -14661,7 +14661,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8a3dd47-a61d-4d31-801b-6ffe20bf305a")
-		(property "Reference" "R1"
+		(property "Reference" "R35"
 			(at 280.67 166.37 90)
 			(effects
 				(font
@@ -14713,7 +14713,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "R1")
+					(reference "R35")
 					(unit 1)
 				)
 			)
@@ -14793,7 +14793,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e6598690-a2f1-4a2b-8c79-49954a1415d9")
-		(property "Reference" "H6"
+		(property "Reference" "H4"
 			(at 290.83 251.4599 0)
 			(effects
 				(font
@@ -14841,7 +14841,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "H6")
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -14857,7 +14857,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e79ead29-ab02-4449-99b4-0ab662d2a68a")
-		(property "Reference" "U6"
+		(property "Reference" "U17"
 			(at 264.1517 52.07 0)
 			(effects
 				(font
@@ -14945,7 +14945,7 @@
 		(instances
 			(project ""
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "U6")
+					(reference "U17")
 					(unit 3)
 				)
 			)
@@ -14961,7 +14961,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eb147667-54a5-4690-a484-349184a010be")
-		(property "Reference" "Q1"
+		(property "Reference" "Q10"
 			(at 295.91 171.4499 0)
 			(effects
 				(font
@@ -15021,7 +15021,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "Q1")
+					(reference "Q10")
 					(unit 1)
 				)
 			)
@@ -15037,7 +15037,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ef0876ee-6e94-487b-8b09-61eea8326be9")
-		(property "Reference" "R3"
+		(property "Reference" "R36"
 			(at 280.67 207.01 90)
 			(effects
 				(font
@@ -15089,7 +15089,7 @@
 		(instances
 			(project "ttlcalc2_display"
 				(path "/4da693c8-a60c-4d11-a405-739e88984bfc"
-					(reference "R3")
+					(reference "R36")
 					(unit 1)
 				)
 			)
