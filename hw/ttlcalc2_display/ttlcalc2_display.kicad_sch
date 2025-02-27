@@ -10327,10 +10327,25 @@
 			)
 		)
 	)
+	(rule_area
+		(polyline
+			(pts
+				(xy 339.09 21.59) (xy 372.11 21.59) (xy 372.11 82.55) (xy 339.09 82.55)
+			)
+			(stroke
+				(width 0)
+				(type dash)
+			)
+			(fill
+				(type none)
+			)
+			(uuid 62fa2d7a-049f-430e-8f82-71a459db3d81)
+		)
+	)
 	(netclass_flag ""
 		(length 2.54)
 		(shape round)
-		(at 114.3 229.87 270)
+		(at 370.84 82.55 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10338,640 +10353,23 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "023b0ca2-c7d2-48d5-935c-542c57e4439e")
-		(property "Netclass" "Logic"
-			(at 116.84 229.1715 90)
+		(uuid "b5d69c96-3f53-42b4-b7b7-1e59051112f8")
+		(property "Netclass" "HV"
+			(at 371.5385 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -152.4 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 					(italic yes)
 				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 151.13 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "05671b96-822c-4c4f-9417-4651afcac937")
-		(property "Netclass" "Logic"
-			(at 64.77 150.4315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 86.36 214.63 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "099e9404-c540-4b2e-8520-990896e48fac")
-		(property "Netclass" "Logic"
-			(at 88.9 213.9315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 121.92 158.75 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "3cd03868-3a87-4fd9-9c78-a1a27daa0555")
-		(property "Netclass" "Logic"
-			(at 124.46 158.0515 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 148.59 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "486aee39-d0bb-42f3-9249-8779a8d864ca")
-		(property "Netclass" "Logic"
-			(at 64.77 147.8915 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 372.11 204.47 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "48776627-34fd-4c5e-9346-c4208d8675a4")
-		(property "Netclass" "Logic"
-			(at 372.8085 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 153.67 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5a1f19bc-154f-44c9-8b94-8618b7086743")
-		(property "Netclass" "Logic"
-			(at 64.77 152.9715 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 53.34 229.87 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "67c5bea8-9ebf-49dc-a0b8-980840d8a1a9")
-		(property "Netclass" "Logic"
-			(at 55.88 229.1715 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 361.95 217.17 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6ddb5ed6-3a73-430c-ac5e-10a6cb3a1bf0")
-		(property "Netclass" "Logic"
-			(at 364.49 216.4715 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 86.36 229.87 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6ff26431-9b49-4f1c-b2ae-24b79643a3d6")
-		(property "Netclass" "Logic"
-			(at 88.9 229.1715 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 361.95 214.63 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "718239b0-256b-4416-a175-656830a65e53")
-		(property "Netclass" "Logic"
-			(at 364.49 213.9315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 361.95 201.93 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "77fee7cb-bb20-4bec-8b54-5b27dfeddf2d")
-		(property "Netclass" "Logic"
-			(at 364.49 201.2315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 156.21 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7a208472-eb70-4372-90a9-719e89b93b10")
-		(property "Netclass" "Logic"
-			(at 64.77 155.5115 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 361.95 209.55 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "86064b48-b0a7-45bf-8894-f80800a9c4cd")
-		(property "Netclass" "Logic"
-			(at 364.49 208.8515 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 114.3 214.63 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8a524124-7847-41ae-99df-9a074151bd6a")
-		(property "Netclass" "Logic"
-			(at 116.84 213.9315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 361.95 212.09 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9049a61c-74a1-4f8a-9209-a13370e8b358")
-		(property "Netclass" "Logic"
-			(at 364.49 211.3915 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 254 68.58 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "91d7bab5-2e94-48fb-bd24-694fcaac868a")
-		(property "Netclass" "Logic"
-			(at 256.54 67.8815 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 361.95 207.01 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cf4585f1-d92f-40db-b05e-fd6999c38ec4")
-		(property "Netclass" "Logic"
-			(at 364.49 206.3115 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 254 53.34 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d228e36b-ffe0-4388-890f-6e5efee67913")
-		(property "Netclass" "Logic"
-			(at 256.54 52.6415 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 121.92 156.21 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d23e7eed-74bf-4431-ad8c-ca2ef7bccc43")
-		(property "Netclass" "Logic"
-			(at 124.46 155.5115 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 121.92 153.67 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "e10e1146-8620-4c5d-9a07-2e40e85ead37")
-		(property "Netclass" "Logic"
-			(at 124.46 152.9715 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 81.28 140.97 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "eba57778-fa4d-4def-878b-b6bbe0e9cc73")
-		(property "Netclass" "Logic"
-			(at 81.9785 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 53.34 214.63 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f82ceb08-33bb-4991-a76c-18a9e2905c57")
-		(property "Netclass" "Logic"
-			(at 55.88 213.9315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 146.05 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fbc6aeff-906d-4769-b734-cd584b48fff4")
-		(property "Netclass" "Logic"
-			(at 64.77 145.3515 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 158.75 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fec9a0e4-b674-4de6-bc55-84b48d9ff601")
-		(property "Netclass" "Logic"
-			(at 64.77 158.0515 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 121.92 151.13 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ff57a276-161e-4018-ad33-b0f7526577c2")
-		(property "Netclass" "Logic"
-			(at 124.46 150.4315 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 62.23 143.51 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ff953747-e2e6-42ee-95e3-778d9c1ce21c")
-		(property "Netclass" "Logic"
-			(at 64.77 142.8115 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
 			)
 		)
 	)
@@ -11621,7 +11019,7 @@
 				)
 			)
 		)
-		(property "Value" "27k"
+		(property "Value" "10k"
 			(at 280.67 229.87 90)
 			(effects
 				(font
@@ -11755,7 +11153,7 @@
 				)
 			)
 		)
-		(property "Value" "27k"
+		(property "Value" "10k"
 			(at 280.67 189.23 90)
 			(effects
 				(font
@@ -14576,7 +13974,7 @@
 				)
 			)
 		)
-		(property "Value" "27k"
+		(property "Value" "10k"
 			(at 280.67 168.91 90)
 			(effects
 				(font
@@ -14952,7 +14350,7 @@
 				)
 			)
 		)
-		(property "Value" "27k"
+		(property "Value" "10k"
 			(at 280.67 209.55 90)
 			(effects
 				(font

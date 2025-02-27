@@ -3260,7 +3260,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 172.72 81.2799 0)
 			(effects
 				(font
@@ -3330,7 +3330,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 90.17 81.2799 0)
 			(effects
 				(font
@@ -3638,7 +3638,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 100.33 81.2799 0)
 			(effects
 				(font
@@ -4012,7 +4012,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 80.01 81.2799 0)
 			(effects
 				(font
@@ -4082,7 +4082,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 39.37 81.2799 0)
 			(effects
 				(font
@@ -4152,7 +4152,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 69.85 81.2799 0)
 			(effects
 				(font
@@ -4737,7 +4737,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 132.08 81.2799 0)
 			(effects
 				(font
@@ -4939,7 +4939,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 182.88 81.2799 0)
 			(effects
 				(font
@@ -5075,7 +5075,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 121.92 81.2799 0)
 			(effects
 				(font
@@ -5210,7 +5210,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 213.36 81.2799 0)
 			(effects
 				(font
@@ -5280,7 +5280,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 162.56 81.2799 0)
 			(effects
 				(font
@@ -5416,7 +5416,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 193.04 81.2799 0)
 			(effects
 				(font
@@ -5552,7 +5552,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 142.24 81.2799 0)
 			(effects
 				(font
@@ -5794,7 +5794,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 29.21 81.2799 0)
 			(effects
 				(font
@@ -6403,7 +6403,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 59.69 81.2799 0)
 			(effects
 				(font
@@ -6543,7 +6543,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 152.4 81.2799 0)
 			(effects
 				(font
@@ -6891,7 +6891,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 203.2 81.2799 0)
 			(effects
 				(font
@@ -6961,7 +6961,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 49.53 81.2799 0)
 			(effects
 				(font
@@ -7163,7 +7163,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "100n"
 			(at 111.76 81.2799 0)
 			(effects
 				(font

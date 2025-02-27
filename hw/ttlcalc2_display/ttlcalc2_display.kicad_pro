@@ -472,7 +472,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.4,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -492,7 +492,6 @@
         "bus_width": 12,
         "clearance": 0.4,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
@@ -505,24 +504,6 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 8
-      },
-      {
-        "bus_width": 12,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Logic",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
-        "wire_width": 6
       }
     ],
     "meta": {
@@ -530,8 +511,257 @@
     },
     "net_colors": null,
     "netclass_assignments": {
+      "/DP_0": [
+        "HV"
+      ],
+      "/DP_1": [
+        "HV"
+      ],
+      "/DP_10": [
+        "HV"
+      ],
+      "/DP_11": [
+        "HV"
+      ],
+      "/DP_2": [
+        "HV"
+      ],
+      "/DP_3": [
+        "HV"
+      ],
+      "/DP_4": [
+        "HV"
+      ],
+      "/DP_5": [
+        "HV"
+      ],
+      "/DP_6": [
+        "HV"
+      ],
+      "/DP_7": [
+        "HV"
+      ],
+      "/DP_8": [
+        "HV"
+      ],
+      "/DP_9": [
+        "HV"
+      ],
+      "/NE_BUSY": [
+        "HV"
+      ],
+      "/NE_ERR": [
+        "HV"
+      ],
+      "/NE_NEG_E": [
+        "HV"
+      ],
+      "/NE_NEG_F": [
+        "HV"
+      ],
+      "/NXA_0": [
+        "HV"
+      ],
+      "/NXA_1": [
+        "HV"
+      ],
+      "/NXA_10": [
+        "HV"
+      ],
+      "/NXA_11": [
+        "HV"
+      ],
+      "/NXA_12": [
+        "HV"
+      ],
+      "/NXA_13": [
+        "HV"
+      ],
+      "/NXA_2": [
+        "HV"
+      ],
+      "/NXA_3": [
+        "HV"
+      ],
+      "/NXA_4": [
+        "HV"
+      ],
+      "/NXA_5": [
+        "HV"
+      ],
+      "/NXA_6": [
+        "HV"
+      ],
+      "/NXA_7": [
+        "HV"
+      ],
+      "/NXA_8": [
+        "HV"
+      ],
+      "/NXA_9": [
+        "HV"
+      ],
+      "/NXC_0": [
+        "HV"
+      ],
+      "/NXC_1": [
+        "HV"
+      ],
+      "/NXC_2": [
+        "HV"
+      ],
+      "/NXC_3": [
+        "HV"
+      ],
+      "/NXC_4": [
+        "HV"
+      ],
+      "/NXC_5": [
+        "HV"
+      ],
+      "/NXC_6": [
+        "HV"
+      ],
+      "/NXC_7": [
+        "HV"
+      ],
+      "/NXC_8": [
+        "HV"
+      ],
+      "/NXC_9": [
+        "HV"
+      ],
+      "HT": [
+        "HV"
+      ],
       "Net-(J4-Pin_21)": [
         "Logic"
+      ],
+      "Net-(Q19-B)": [
+        "HV"
+      ],
+      "Net-(Q19-C)": [
+        "HV"
+      ],
+      "Net-(Q20-B)": [
+        "HV"
+      ],
+      "Net-(Q20-C)": [
+        "HV"
+      ],
+      "Net-(Q21-B)": [
+        "HV"
+      ],
+      "Net-(Q21-C)": [
+        "HV"
+      ],
+      "Net-(Q22-B)": [
+        "HV"
+      ],
+      "Net-(Q22-C)": [
+        "HV"
+      ],
+      "Net-(Q23-B)": [
+        "HV"
+      ],
+      "Net-(Q23-C)": [
+        "HV"
+      ],
+      "Net-(Q32-B)": [
+        "HV"
+      ],
+      "Net-(Q32-C)": [
+        "HV"
+      ],
+      "Net-(Q33-B)": [
+        "HV"
+      ],
+      "Net-(Q33-C)": [
+        "HV"
+      ],
+      "Net-(Q34-B)": [
+        "HV"
+      ],
+      "Net-(Q34-C)": [
+        "HV"
+      ],
+      "Net-(Q35-B)": [
+        "HV"
+      ],
+      "Net-(Q35-C)": [
+        "HV"
+      ],
+      "Net-(Q36-B)": [
+        "HV"
+      ],
+      "Net-(Q36-C)": [
+        "HV"
+      ],
+      "Net-(Q37-B)": [
+        "HV"
+      ],
+      "Net-(Q37-C)": [
+        "HV"
+      ],
+      "Net-(Q38-B)": [
+        "HV"
+      ],
+      "Net-(Q38-C)": [
+        "HV"
+      ],
+      "Net-(Q39-B)": [
+        "HV"
+      ],
+      "Net-(Q39-C)": [
+        "HV"
+      ],
+      "Net-(Q40-B)": [
+        "HV"
+      ],
+      "Net-(Q40-C)": [
+        "HV"
+      ],
+      "Net-(Q41-C)": [
+        "HV"
+      ],
+      "Net-(Q42-C)": [
+        "HV"
+      ],
+      "Net-(Q43-C)": [
+        "HV"
+      ],
+      "Net-(Q44-C)": [
+        "HV"
+      ],
+      "Net-(Q45-C)": [
+        "HV"
+      ],
+      "Net-(Q46-C)": [
+        "HV"
+      ],
+      "Net-(Q47-C)": [
+        "HV"
+      ],
+      "Net-(Q48-C)": [
+        "HV"
+      ],
+      "Net-(Q49-C)": [
+        "HV"
+      ],
+      "Net-(Q50-C)": [
+        "HV"
+      ],
+      "Net-(Q51-C)": [
+        "HV"
+      ],
+      "Net-(Q52-C)": [
+        "HV"
+      ],
+      "Net-(Q53-C)": [
+        "HV"
+      ],
+      "Net-(Q54-C)": [
+        "HV"
       ],
       "Net-(R23-Pad1)": [
         "Logic"
@@ -660,100 +890,7 @@
         "Logic"
       ]
     },
-    "netclass_patterns": [
-      {
-        "netclass": "HV",
-        "pattern": "/NXA_*"
-      },
-      {
-        "netclass": "HV",
-        "pattern": "/NXC_*"
-      },
-      {
-        "netclass": "HV",
-        "pattern": "/NE_*"
-      },
-      {
-        "netclass": "HV",
-        "pattern": "/DP_*"
-      },
-      {
-        "netclass": "HV",
-        "pattern": "HT"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/Decimal Point Drive/~{DP_*}"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/Decimal Point Drive/DPSEL*"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/BUSY"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/ERR"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/NEG_E"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/NEG_F"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "CLK2"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "DO*"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/NXSEL*"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/Nixie Anode Drive/~{NX_D*}"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/Nixie Anode Drive/~{EN}"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "MA*"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "~{WIO}"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/Nixie Cathode Drive/NXD*"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/Nixie Cathode Drive/~{NX*}"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "VCC"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "GND"
-      },
-      {
-        "netclass": "Logic",
-        "pattern": "/~{EN_*}"
-      }
-    ]
+    "netclass_patterns": []
   },
   "pcbnew": {
     "last_paths": {
