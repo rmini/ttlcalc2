@@ -48,38 +48,41 @@ public enum Flags
     YF = 1 << 3
 }
 
-public readonly struct Operation
+public readonly record struct Operation
 {
-    public readonly BranchCond? Cond;
-    public readonly UInt16 Jmp;
-    public readonly Src Src;
-    public readonly Dst Dst;
-    public readonly bool ZeroPageAddr;
-    public readonly bool IncDecHL;
-    public readonly bool DecHLandBcd;
-    public readonly bool UseCarryFlagInput;
-    public readonly bool AluLogicMode;
-    public readonly Nybble Imm;
+    public BranchCond? Cond { get; init; }
+    public UInt16 Jmp { get; init; }
+    public Src Src { get; init; }
+    public Dst Dst { get; init; }
+    public bool ZeroPageAddr { get; init; }
+    public bool IncDecHL { get; init; }
+    public bool DecHLandBcd { get; init; }
+    public bool UseCarryFlagInput { get; init; }
+    public bool AluLogicMode { get; init; }
+    public Nybble Imm { get; init; }
 
-    public Operation(UInt16 d)
+    public static Operation FromUInt16(UInt16 d)
     {
-        bool isJmp = Slice(d, 0, 0) == 0;
-        if (isJmp)
+        var isJmp = Slice(d, 0, 0) == 0;
+        return isJmp switch
         {
-            Cond = (BranchCond)Slice(d, 3, 1);
-            Jmp = Slice(d, 15, 4);
-        }
-        else
-        {
-            Src = (Src)Slice(d, 3, 1);
-            Dst = (Dst)Slice(d, 6, 4);
-            ZeroPageAddr = Slice(d, 7, 7) == 0;
-            IncDecHL = Slice(d, 8, 8) == 0;
-            DecHLandBcd = Slice(d, 9, 9) != 0;
-            UseCarryFlagInput = Slice(d, 10, 10) != 0;
-            AluLogicMode = Slice(d, 11, 11) != 0;
-            Imm = Slice(d, 15, 12);
-        }
+            true => new Operation
+            {
+                Cond = (BranchCond)Slice(d, 3, 1),
+                Jmp = Slice(d, 15, 4)
+            },
+            false => new Operation
+            {
+                Src = (Src)Slice(d, 3, 1),
+                Dst = (Dst)Slice(d, 6, 4),
+                ZeroPageAddr = Slice(d, 7, 7) == 0,
+                IncDecHL = Slice(d, 8, 8) == 0,
+                DecHLandBcd = Slice(d, 9, 9) != 0,
+                UseCarryFlagInput = Slice(d, 10, 10) != 0,
+                AluLogicMode = Slice(d, 11, 11) != 0,
+                Imm = Slice(d, 15, 12),
+            }
+        };
     }
 
     private static UInt16 Slice(UInt16 d, byte hi, byte lo)

@@ -4,7 +4,7 @@ using System.IO;
 
 namespace TtlCalcSim;
 
-[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Members are public for future use")]
 public class TtlCalcSim(Alu alu, InputOutput inputOutput)
 {
     public readonly Operation[] Prog = new Operation[1 << 12];
@@ -24,7 +24,7 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
 
     public byte HL
     {
-        get => (byte)H << 4 | L;
+        get => (byte)((byte)H << 4 | (byte)L);
         set
         {
             H = value >> 4;
@@ -121,17 +121,30 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
         }
     }
 
-    public void LoadProg(Stream stream)
+    public void LoadProg(Stream stream, UInt16 instructionStart = 0, UInt16? instructionCount = null)
     {
-        var bytes = new byte[2 * Prog.Length];
-            
-        if (stream.Read(bytes, 0, bytes.Length) != bytes.Length)
+        if (instructionStart >= Prog.Length)
         {
-            throw new Exception("Short read");
+            throw new ArgumentOutOfRangeException(nameof(instructionStart),
+                "Start cannot extend past end of program memory");
         }
-        for (int loc = 0; loc < Prog.Length; loc++)
+
+        if (instructionCount == null)
         {
-            Prog[loc] = new Operation(BitConverter.ToUInt16(bytes, loc * 2));
+            instructionCount = (UInt16)(Prog.Length - instructionStart);
+        }
+        else if (instructionCount > Prog.Length - instructionStart)
+        {
+            throw new ArgumentOutOfRangeException(nameof(instructionStart),
+                "Start + Count cannot extend past end of program memory");
+        }
+
+        var bytes = new byte[2 * instructionCount.Value];
+        stream.ReadExactly(bytes, 0, instructionCount.Value * 2);
+
+        for (int loc = 0; loc < instructionCount; loc++)
+        {
+            Prog[instructionStart + loc] = Operation.FromUInt16(BitConverter.ToUInt16(bytes, loc * 2));
         }
     }
 }

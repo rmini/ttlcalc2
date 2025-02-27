@@ -2,6 +2,18 @@
 
 public class Alu74181
 {
+    // m = false, Arithmetic
+    public const byte Subtract = 6;
+    public const byte Add = 9;
+
+    // m = true, Logic
+    public const byte Or = 14;
+    public const byte And = 11;
+    public const byte Xor = 6;
+    public const byte Nor = 1;
+    public const byte Nand = 4;
+    public const byte Xnor = 9;
+
     public (bool cn4, Nybble f) Evaluate(Nybble a, Nybble b, Nybble s, bool m, bool cn)
     {
         var s0 = (s & 1) != 0 ? 0xf : 0;
