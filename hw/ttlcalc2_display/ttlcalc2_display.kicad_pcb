@@ -630,7 +630,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "f4e16af6-7f2a-4fea-9aff-c8ecac205f32")
@@ -7720,7 +7720,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "0d4b2f85-0f69-4f98-9450-ea258f0d1071")
@@ -14705,7 +14705,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "54381f63-20f3-44c4-9132-29703c24b160")
@@ -20994,7 +20994,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "1a4b94a7-b30d-4b4b-ba27-d319413f09e0")
@@ -25340,7 +25340,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "f9552ed6-fea8-4b09-8901-4234e9c6f5b9")
@@ -29023,7 +29023,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "2b39e0e3-4f90-4736-9a7b-c72f980a3004")
@@ -29770,7 +29770,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "db46ddb8-c375-4bb2-aac9-52f594f66f24")
@@ -30296,7 +30296,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "124632c1-8f44-4e57-8aca-c1ef93f4db80")
@@ -31327,7 +31327,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "a45928f0-63e1-4644-b217-65a7c095f52e")
@@ -33470,7 +33470,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "c784704a-9523-4b80-a268-4f0f5556814f")
@@ -34013,7 +34013,7 @@
 			)
 		)
 		(property ki_fp_filters "DIP*W7.62mm* SSOP?14* TSSOP?14*")
-		(path "/c006158c-8419-4997-a118-4eb07a383159")
+		(path "/c862fefa-3b77-4ccd-8138-869f7fc35198")
 		(sheetname "/")
 		(sheetfile "ttlcalc2_display.kicad_sch")
 		(attr through_hole)
@@ -40797,7 +40797,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "0732dd91-57d9-48fe-ae1c-879af18b0710")
@@ -41302,7 +41302,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "db73b204-8501-42b9-9cfe-98eb72d8d8fa")
@@ -42070,7 +42070,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "a71fde53-130b-40c3-8aec-4ec28a6dd7ec")
@@ -48656,7 +48656,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "17a2252f-74ba-4a39-ab73-c50878974adb")

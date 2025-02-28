@@ -6300,7 +6300,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 275.59 212.0899 0)
 			(effects
 				(font
@@ -7246,7 +7246,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 207.01 160.0199 0)
 			(effects
 				(font
@@ -7382,7 +7382,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 344.17 160.0199 0)
 			(effects
 				(font
@@ -8323,7 +8323,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 207.01 212.0899 0)
 			(effects
 				(font
@@ -8750,7 +8750,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 411.48 160.0199 0)
 			(effects
 				(font
@@ -9213,7 +9213,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 138.43 212.0899 0)
 			(effects
 				(font
@@ -9387,7 +9387,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 138.43 107.9499 0)
 			(effects
 				(font
@@ -10374,7 +10374,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 411.48 107.9499 0)
 			(effects
 				(font
@@ -10548,7 +10548,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 275.59 107.9499 0)
 			(effects
 				(font
@@ -10688,7 +10688,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 138.43 160.0199 0)
 			(effects
 				(font
@@ -10758,7 +10758,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 207.01 107.9499 0)
 			(effects
 				(font
@@ -11588,7 +11588,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 344.17 212.0899 0)
 			(effects
 				(font
@@ -11936,7 +11936,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 275.59 160.0199 0)
 			(effects
 				(font
@@ -13582,7 +13582,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "22k"
 			(at 344.17 107.9499 0)
 			(effects
 				(font
