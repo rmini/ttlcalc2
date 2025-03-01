@@ -261,4 +261,76 @@ public class OperationTests
         string result = operation.Disassemble();
         Assert.Equal("ALU[0b01111]CD X, X, Y", result);
     }
+
+    [Fact]
+    public void Disassemble_MovHX_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.X,
+            Dst = Dst.H
+        };
+
+        string result = operation.Disassemble();
+        Assert.Equal("MOV H, X", result);
+    }
+
+    [Fact]
+    public void Disassemble_NopIncHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Dst = Dst.None,
+            IncDecHL = true
+        };
+
+        string result = operation.Disassemble();
+        Assert.Equal("NOP; HL++", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovFlagsImm_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Imm,
+            Dst = Dst.Flags,
+            Imm = 0b1111
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV Flags, #0xF", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovLImm_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Imm,
+            Dst = Dst.L,
+            Imm = 0b1010
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV L, #0xA", result);
+    }
+
+    [Fact]
+    public void Disassemble_InvalidDst_ThrowsArgumentOutOfRangeException()
+    {
+        Operation operation = new()
+        {
+            Dst = (Dst)0xFF
+        };
+        Assert.Throws<ArgumentOutOfRangeException>(() => operation.Disassemble());
+    }
+
+    [Fact]
+    public void Disassemble_InvalidSrc_ThrowsArgumentOutOfRangeException()
+    {
+        Operation operation = new()
+        {
+            Src = (Src)0xFF
+        };
+        Assert.Throws<ArgumentOutOfRangeException>(() => operation.Disassemble());
+    }
 }

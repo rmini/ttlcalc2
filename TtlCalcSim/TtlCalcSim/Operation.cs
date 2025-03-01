@@ -127,7 +127,8 @@ public readonly record struct Operation
             return $"{BranchCondToString[Cond.Value]} 0x{Jmp:X03}";
         }
 
-        var suffix = "";
+        var suffix = IncDecHL ? $"; HL{(DecHLandBcd ? "--" : "++")}" : "";
+
         var dst = Dst switch
         {
             Dst.X => "X",
@@ -146,14 +147,11 @@ public readonly record struct Operation
             if (ZeroPageAddr)
             {
                 dst += $"[0x{Imm:X1}]";
-                if (IncDecHL)
-                {
-                    suffix = $"; HL{(DecHLandBcd ? "--" : "++")}";
-                }
             }
             else
             {
                 dst += $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
+                suffix = "";
             }
         }
 
@@ -176,17 +174,14 @@ public readonly record struct Operation
                 if (ZeroPageAddr)
                 {
                     src += $"[0x{Imm:X1}]";
-                    if (IncDecHL)
-                    {
-                        suffix = $"; HL{(DecHLandBcd ? "--" : "++")}";
-                    }
                 }
                 else
                 {
                     src += $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
+                    suffix = "";
                 }
             }
-
+            
             return Dst switch
             {
                 Dst.None => $"NOP{suffix}",
@@ -201,6 +196,6 @@ public readonly record struct Operation
         }
 
         return
-            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{(byte)Imm:B04}]{mnemonicSuffix} {dst}, X, Y{suffix}";
+            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{Imm:B04}]{mnemonicSuffix} {dst}, X, Y{suffix}";
     }
 }
