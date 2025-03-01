@@ -288,4 +288,20 @@ public class NybbleTests
         string result = a.ToString();
         Assert.Equal("5", result);
     }
+
+    [Fact]
+    public void ToString_FormatProvider_ShouldSucceed()
+    {
+        Nybble a = 5;
+        string result = a.ToString(null, null);
+        Assert.Equal("5", result);
+    }
+
+    [Fact]
+    public void ToString_Format_ShouldSucceed()
+    {
+        Nybble a = 15;
+        string result = a.ToString("X", null);
+        Assert.Equal("F", result);
+    }
 }

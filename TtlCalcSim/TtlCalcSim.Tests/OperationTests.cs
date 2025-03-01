@@ -87,4 +87,178 @@ public class OperationTests
         string expected = "Cond: , Jmp: 0, Src: X, Dst: X, ZeroPageAddr: True, IncDecHL: True, DecHLandBcd: False, UseCarryFlagInput: False, AluLogicMode: False, Imm: 8";
         Assert.Equal(expected, result);
     }
+
+    [Fact]
+    public void Disassemble_Jmp_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Cond = BranchCond.Z,
+            Jmp = 0b1110_1110_1001
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("JZ 0xEE9", result);
+    }
+
+    [Fact]
+    public void Disassemble_JmpNever_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Cond = BranchCond.Never,
+            Jmp = 0b1110_1110_1001
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("NOP 0xEE9", result);
+    }
+
+    [Fact]
+    public void Disassemble_AluAdd_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Alu,
+            Dst = Dst.X,
+            DecHLandBcd = false,
+            UseCarryFlagInput = false,
+            AluLogicMode = false,
+            Imm = Alu74181.Add
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("ADD X, X, Y", result);
+    }
+
+    [Fact]
+    public void Disassemble_AluAddCarryBcd_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Alu,
+            Dst = Dst.Mem,
+            IncDecHL = false,
+            DecHLandBcd = true,
+            UseCarryFlagInput = true,
+            AluLogicMode = false,
+            Imm = Alu74181.Add
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("ADDCD Mem[HL], X, Y", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovYH_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.H,
+            Dst = Dst.Y
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV Y, H", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovMemLIncHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.L,
+            Dst = Dst.Mem,
+            ZeroPageAddr = false,
+            IncDecHL = true
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV Mem[HL++], L", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovMemFlagsZeroPage_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Flags,
+            Dst = Dst.Mem,
+            ZeroPageAddr = true,
+            IncDecHL = false
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV Mem[0x0], Flags", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovIOImmDecHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Imm,
+            Dst = Dst.IO,
+            ZeroPageAddr = false,
+            IncDecHL = true,
+            DecHLandBcd = true,
+            Imm = 0b1111
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV IO[HL--], #0xF", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovMemIOZeroPageIncHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.IO,
+            Dst = Dst.Mem,
+            ZeroPageAddr = true,
+            IncDecHL = true
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV Mem[0x0], IO[0x0]; HL++", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovXMemDecHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Mem,
+            Dst = Dst.X,
+            ZeroPageAddr = false,
+            IncDecHL = true,
+            DecHLandBcd = true
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV X, Mem[HL--]", result);
+    }
+
+    [Fact]
+    public void Disassemble_MovXMemIncHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Mem,
+            Dst = Dst.X,
+            ZeroPageAddr = false,
+            IncDecHL = true,
+            DecHLandBcd = false
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV X, Mem[HL++]", result);
+    }
+
+    [Fact]
+    public void Disassemble_WeirdAluOp_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Alu,
+            Dst = Dst.X,
+            IncDecHL = false,
+            UseCarryFlagInput = true,
+            AluLogicMode = false,
+            DecHLandBcd = true,
+            Imm = 0b1111
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("ALU[0b01111]CD X, X, Y", result);
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace TtlCalcSim;
 
-public readonly record struct Nybble
+public readonly record struct Nybble : IFormattable
 {
     private readonly byte _value;
 
@@ -32,5 +32,8 @@ public readonly record struct Nybble
     public static bool operator >=(Nybble a, Nybble b) => a._value >= b._value;
     public override int GetHashCode() => -1584136870 + _value.GetHashCode();
     public override string ToString() => _value.ToString();
-
+    public string ToString(string? format, IFormatProvider? formatProvider)
+    {
+        return _value.ToString(format, formatProvider);
+    }
 }

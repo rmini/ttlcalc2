@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TtlCalcSim;
 
@@ -93,5 +94,113 @@ public readonly record struct Operation
     public override string ToString()
     {
         return $"Cond: {Cond}, Jmp: {Jmp}, Src: {Src}, Dst: {Dst}, ZeroPageAddr: {ZeroPageAddr}, IncDecHL: {IncDecHL}, DecHLandBcd: {DecHLandBcd}, UseCarryFlagInput: {UseCarryFlagInput}, AluLogicMode: {AluLogicMode}, Imm: {Imm}";
+    }
+
+    private static readonly Dictionary<BranchCond, string> BranchCondToString = new()
+    {
+        { BranchCond.Never, "NOP" },
+        { BranchCond.Z, "JZ" },
+        { BranchCond.NZ, "JNZ" },
+        { BranchCond.C, "JC" },
+        { BranchCond.NC, "JNC" },
+        { BranchCond.GT, "JGT" },
+        { BranchCond.LE, "JLE" },
+        { BranchCond.Always, "JMP" },
+    };
+
+    private static readonly Dictionary<(bool logic, byte op), string> AluOpToString = new()
+    {
+        { (false, Alu74181.Subtract), "SUB" },
+        { (false, Alu74181.Add), "ADD" },
+        { (true,  Alu74181.Or), "OR" },
+        { (true,  Alu74181.And), "AND" },
+        { (true,  Alu74181.Xor), "XOR" },
+        { (true,  Alu74181.Nor), "NOR" },
+        { (true,  Alu74181.Nand), "NAND" },
+        { (true,  Alu74181.Xnor), "XNOR" },
+    };
+
+    public string Disassemble()
+    {
+        if (Cond.HasValue)
+        {
+            return $"{BranchCondToString[Cond.Value]} 0x{Jmp:X03}";
+        }
+
+        var suffix = "";
+        var dst = Dst switch
+        {
+            Dst.X => "X",
+            Dst.Y => "Y",
+            Dst.H => "H",
+            Dst.L => "L",
+            Dst.IO => "IO",
+            Dst.Mem => "Mem",
+            Dst.Flags => "Flags",
+            Dst.None => "NOP",
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        if (Dst is Dst.IO or Dst.Mem)
+        {
+            if (ZeroPageAddr)
+            {
+                dst += $"[0x{Imm:X1}]";
+                if (IncDecHL)
+                {
+                    suffix = $"; HL{(DecHLandBcd ? "--" : "++")}";
+                }
+            }
+            else
+            {
+                dst += $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
+            }
+        }
+
+        if (Src != Src.Alu)
+        {
+            var src = Src switch
+            {
+                Src.X => "X",
+                Src.H => "H",
+                Src.L => "L",
+                Src.IO => "IO",
+                Src.Mem => "Mem",
+                Src.Flags => "Flags",
+                Src.Imm => $"#0x{Imm:X1}",
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            if (Src is Src.IO or Src.Mem)
+            {
+                if (ZeroPageAddr)
+                {
+                    src += $"[0x{Imm:X1}]";
+                    if (IncDecHL)
+                    {
+                        suffix = $"; HL{(DecHLandBcd ? "--" : "++")}";
+                    }
+                }
+                else
+                {
+                    src += $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
+                }
+            }
+
+            return Dst switch
+            {
+                Dst.None => $"NOP{suffix}",
+                _ => $"MOV {dst}, {src}{suffix}"
+            };
+        }
+
+        string mnemonicSuffix = $"{(UseCarryFlagInput ? "C" : "")}{(DecHLandBcd ? "D" : "")}";
+        if (AluOpToString.TryGetValue((AluLogicMode, Imm), out var mnemonic))
+        {
+            return $"{mnemonic}{mnemonicSuffix} {dst}, X, Y{suffix}";
+        }
+
+        return
+            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{(byte)Imm:B04}]{mnemonicSuffix} {dst}, X, Y{suffix}";
     }
 }
