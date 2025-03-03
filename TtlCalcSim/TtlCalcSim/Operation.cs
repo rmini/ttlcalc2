@@ -129,6 +129,67 @@ public readonly record struct Operation
 
         var suffix = IncDecHL ? $"; HL{(DecHLandBcd ? "--" : "++")}" : "";
 
+        var dst = FormatDst(ref suffix);
+
+        if (Src == Src.Alu) 
+            return FormatAluInstruction(dst, suffix);
+
+        var src = FormatSrc(ref suffix);
+
+        return Dst switch
+        {
+            Dst.None => $"NOP{suffix}",
+            _ => $"MOV {dst}, {src}{suffix}"
+        };
+    }
+
+    private string FormatAluInstruction(string dst, string suffix)
+    {
+        string mnemonicSuffix = $"{(UseCarryFlagInput ? "C" : "")}{(DecHLandBcd ? "D" : "")}";
+        if (AluOpToString.TryGetValue((AluLogicMode, Imm), out var mnemonic))
+        {
+            return $"{mnemonic}{mnemonicSuffix} {dst}, X, Y{suffix}";
+        }
+
+        return
+            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{Imm:B04}]{mnemonicSuffix} {dst}, X, Y{suffix}";
+    }
+
+    private string FormatSrc(ref string suffix)
+    {
+        var src = Src switch
+        {
+            Src.X => "X",
+            Src.H => "H",
+            Src.L => "L",
+            Src.IO => "IO",
+            Src.Mem => "Mem",
+            Src.Flags => "Flags",
+            Src.Imm => $"#0x{Imm:X1}",
+            _ => throw new ArgumentOutOfRangeException(nameof(Src))
+        };
+
+        if (Src is Src.IO or Src.Mem)
+        {
+            src += FormatAddressReference(ref suffix);
+        }
+
+        return src;
+    }
+
+    private string FormatAddressReference(ref string suffix)
+    {
+        if (ZeroPageAddr)
+        {
+            return $"[0x{Imm:X1}]";
+        }
+
+        suffix = "";
+        return $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
+    }
+
+    private string FormatDst(ref string suffix)
+    {
         var dst = Dst switch
         {
             Dst.X => "X",
@@ -144,58 +205,9 @@ public readonly record struct Operation
 
         if (Dst is Dst.IO or Dst.Mem)
         {
-            if (ZeroPageAddr)
-            {
-                dst += $"[0x{Imm:X1}]";
-            }
-            else
-            {
-                dst += $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
-                suffix = "";
-            }
+            dst += FormatAddressReference(ref suffix);
         }
 
-        if (Src != Src.Alu)
-        {
-            var src = Src switch
-            {
-                Src.X => "X",
-                Src.H => "H",
-                Src.L => "L",
-                Src.IO => "IO",
-                Src.Mem => "Mem",
-                Src.Flags => "Flags",
-                Src.Imm => $"#0x{Imm:X1}",
-                _ => throw new ArgumentOutOfRangeException()
-            };
-
-            if (Src is Src.IO or Src.Mem)
-            {
-                if (ZeroPageAddr)
-                {
-                    src += $"[0x{Imm:X1}]";
-                }
-                else
-                {
-                    src += $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
-                    suffix = "";
-                }
-            }
-            
-            return Dst switch
-            {
-                Dst.None => $"NOP{suffix}",
-                _ => $"MOV {dst}, {src}{suffix}"
-            };
-        }
-
-        string mnemonicSuffix = $"{(UseCarryFlagInput ? "C" : "")}{(DecHLandBcd ? "D" : "")}";
-        if (AluOpToString.TryGetValue((AluLogicMode, Imm), out var mnemonic))
-        {
-            return $"{mnemonic}{mnemonicSuffix} {dst}, X, Y{suffix}";
-        }
-
-        return
-            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{Imm:B04}]{mnemonicSuffix} {dst}, X, Y{suffix}";
+        return dst;
     }
 }

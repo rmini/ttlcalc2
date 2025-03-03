@@ -16,23 +16,13 @@ public class Alu74181
 
     public (bool cn4, Nybble f) Evaluate(Nybble a, Nybble b, Nybble s, bool m, bool cn)
     {
-        var s0 = (s & 1) != 0 ? 0xf : 0;
-        var s1 = (s & 2) != 0 ? 0xf : 0;
-        var s2 = (s & 4) != 0 ? 0xf : 0;
-        var s3 = (s & 8) != 0 ? 0xf : 0;
+        var (s0, s1, s2, s3) = UnpackFunctionSelect(s);
 
         var x = ~(a | (b & s0) | (~b & s1));
         var y = ~((a & ~b & s2) | (a & b & s3));
 
-        bool x0 = (x & 1) != 0;
-        bool x1 = (x & 2) != 0;
-        bool x2 = (x & 4) != 0;
-        bool x3 = (x & 8) != 0;
-
-        bool y0 = (y & 1) != 0;
-        bool y1 = (y & 2) != 0;
-        bool y2 = (y & 4) != 0;
-        bool y3 = (y & 8) != 0;
+        var (x0, x1, x2, x3) = UnpackNybble(x);
+        var (y0, y1, y2, y3) = UnpackNybble(y);
 
         bool i0 = !(cn && !m);
         bool i1 = !x0 && y0;
@@ -52,6 +42,29 @@ public class Alu74181
         //bool p = !(y0 && y1 && y2 && y3);
         bool cn4 = !i8 || !i9;
         //bool g = i9;
-        return (cn4, (f3 ? 8 : 0) + (f2 ? 4 : 0) + (f1 ? 2 : 0) + (f0 ? 1 : 0));
+        return (cn4, PackNybble(f3, f2, f1, f0));
+    }
+
+    private static Nybble PackNybble(bool f3, bool f2, bool f1, bool f0)
+    {
+        return (f3 ? 8 : 0) + (f2 ? 4 : 0) + (f1 ? 2 : 0) + (f0 ? 1 : 0);
+    }
+
+    private static (bool x0, bool x1, bool x2, bool x3) UnpackNybble(Nybble x)
+    {
+        bool x0 = (x & 1) != 0;
+        bool x1 = (x & 2) != 0;
+        bool x2 = (x & 4) != 0;
+        bool x3 = (x & 8) != 0;
+        return (x0, x1, x2, x3);
+    }
+
+    private static (Nybble s0, Nybble s1, Nybble s2, Nybble s3) UnpackFunctionSelect(Nybble s)
+    {
+        var s0 = (s & 1) != 0 ? 0xf : 0;
+        var s1 = (s & 2) != 0 ? 0xf : 0;
+        var s2 = (s & 4) != 0 ? 0xf : 0;
+        var s3 = (s & 8) != 0 ? 0xf : 0;
+        return (s0, s1, s2, s3);
     }
 }

@@ -28,6 +28,23 @@ public class InputOutputTests
     }
 
     [Fact]
+    public void Read_WithOutOfOrderHandlers_ReturnsExpectedResults()
+    {
+        // Arrange
+        var io = new InputOutput();
+        io.AddInputHandler(0xF0, 0xFF, addr => 0x5);
+        io.AddInputHandler(0x00, 0x0F, addr => 0xA);
+
+        // Act
+        var result1 = io.Read(0x05);
+        var result2 = io.Read(0xF5);
+
+        // Assert
+        Assert.Equal((byte)0xA, (byte)result1);
+        Assert.Equal((byte)0x5, (byte)result2);
+    }
+
+    [Fact]
     public void Write_WithValidAddress_CallsHandler()
     {
         // Arrange
@@ -104,6 +121,24 @@ public class InputOutputTests
         var io = new InputOutput();
         // Act & Assert
         Assert.Throws<ArgumentOutOfRangeException>(() => io.RemoveOutputHandler(0));
+    }
+
+    [Fact]
+    public void RemoveInputHandler_WithNegativeIndex_ThrowsArgumentOutOfRangeException()
+    {
+        // Arrange
+        var io = new InputOutput();
+        // Act & Assert
+        Assert.Throws<ArgumentOutOfRangeException>(() => io.RemoveInputHandler(-1));
+    }
+
+    [Fact]
+    public void RemoveOutputHandler_WithNegativeIndex_ThrowsArgumentOutOfRangeException()
+    {
+        // Arrange
+        var io = new InputOutput();
+        // Act & Assert
+        Assert.Throws<ArgumentOutOfRangeException>(() => io.RemoveOutputHandler(-1));
     }
 
     [Fact]

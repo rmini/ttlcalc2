@@ -9,12 +9,14 @@ public class TtlCalcSimTests
         _alu74181 = new Alu74181();
         _alu = new Alu(_alu74181);
         _inputOutput = new Mock<InputOutput>();
-        _sim = new TtlCalcSim(_alu, _inputOutput.Object);
+        _mem = new Memory();
+        _sim = new TtlCalcSim(_alu, _mem, _inputOutput.Object);
     }
 
     private readonly Alu74181 _alu74181;
     private readonly Alu _alu;
     private readonly Mock<InputOutput> _inputOutput;
+    private readonly Memory _mem;
     private readonly TtlCalcSim _sim;
 
     [Fact]
@@ -133,7 +135,7 @@ public class TtlCalcSimTests
         _sim.Prog[0] = new Operation { Src = Src.X, Dst = Dst.Mem, ZeroPageAddr = true, Imm = 0 };
         _sim.X = 0x5;
         _sim.RunStep();
-        Assert.Equal(0x5, (byte)_sim.Mem[0]);
+        Assert.Equal(0x5, (byte)_mem[0]);
     }
 
     [Fact]
@@ -209,7 +211,7 @@ public class TtlCalcSimTests
         _sim.Prog[0] = new Operation { Src = Src.H, Dst = Dst.Mem, ZeroPageAddr = true, Imm = 0 };
         _sim.H = 0x5;
         _sim.RunStep();
-        Assert.Equal(0x5, (byte)_sim.Mem[0]);
+        Assert.Equal(0x5, (byte)_mem[0]);
     }
 
     [Fact]
@@ -218,7 +220,7 @@ public class TtlCalcSimTests
         _sim.Prog[0] = new Operation { Src = Src.L, Dst = Dst.Mem, ZeroPageAddr = true, Imm = 0 };
         _sim.L = 0x5;
         _sim.RunStep();
-        Assert.Equal(0x5, (byte)_sim.Mem[0]);
+        Assert.Equal(0x5, (byte)_mem[0]);
     }
 
     [Fact]
@@ -226,7 +228,7 @@ public class TtlCalcSimTests
     {
         _sim.Prog[0] = new Operation { Src = Src.IO, Dst = Dst.X, ZeroPageAddr = true, Imm = 1 };
         _sim.HL = 0xAA;
-        _inputOutput.Setup(i => i.Read((byte)0x01)).Returns(0x5);
+        _inputOutput.Setup(i => i.Read(0x01)).Returns(0x5);
         _sim.RunStep();
         Assert.Equal(0x5, (byte)_sim.X);
     }
@@ -245,7 +247,7 @@ public class TtlCalcSimTests
     public void RunStep_SourceMemZeroPage_ShouldSucceed()
     {
         _sim.Prog[0] = new Operation { Src = Src.Mem, Dst = Dst.X, ZeroPageAddr = true, Imm = 0 };
-        _sim.Mem[0] = 0x5;
+        _mem[0] = 0x5;
         _sim.RunStep();
         Assert.Equal(0x5, (byte)_sim.X);
     }
@@ -255,7 +257,7 @@ public class TtlCalcSimTests
     {
         _sim.Prog[0] = new Operation { Src = Src.Mem, Dst = Dst.X };
         _sim.HL = 0xA5;
-        _sim.Mem[0xA5] = 0x5;
+        _mem[0xA5] = 0x5;
         _sim.RunStep();
         Assert.Equal(0x5, (byte)_sim.X);
     }
@@ -316,7 +318,7 @@ public class TtlCalcSimTests
         _sim.X = 0x5;
         _sim.HL = 0xAA;
         _sim.RunStep();
-        _inputOutput.Verify(i => i.Write((byte)0x01, 0x5));
+        _inputOutput.Verify(i => i.Write(0x01, 0x5));
     }
 
     [Fact]
@@ -335,7 +337,7 @@ public class TtlCalcSimTests
         _sim.Prog[0] = new Operation { Src = Src.X, Dst = Dst.Mem, ZeroPageAddr = true, Imm = 0 };
         _sim.X = 0x5;
         _sim.RunStep();
-        Assert.Equal(0x5, (byte)_sim.Mem[0]);
+        Assert.Equal(0x5, (byte)_mem[0]);
     }
 
     [Fact]
@@ -345,7 +347,7 @@ public class TtlCalcSimTests
         _sim.X = 0x5;
         _sim.HL = 0xA5;
         _sim.RunStep();
-        Assert.Equal(0x5, (byte)_sim.Mem[0xA5]);
+        Assert.Equal(0x5, (byte)_mem[0xA5]);
     }
 
     [Fact]
@@ -374,7 +376,7 @@ public class TtlCalcSimTests
         Assert.Equal(0x8, (byte)_sim.L);
         Assert.Equal(Flags.EF, _sim.Flags);
         _inputOutput.VerifyNoOtherCalls();
-        Assert.All(_sim.Mem, d => Assert.Equal((byte)0, (byte)d));
+        Assert.All(Enumerable.Range(0, 256).Select(addr => _mem[(byte)addr]), d => Assert.Equal((byte)0, (byte)d));
     }
 
     [Fact]
@@ -412,6 +414,18 @@ public class TtlCalcSimTests
         _sim.Y = 0b1100;
         _sim.RunStep();
         Assert.Equal((byte)~((Nybble)0b1010 ^ 0b1100), (byte)_sim.X);
+    }
+
+    [Fact]
+    public void RunStep_AluOperation_ShouldPreserveXFAndYF()
+    {
+        _sim.Prog[0] = new Operation { Src = Src.Alu, Dst = Dst.X, Imm = Alu74181.Add };
+        _sim.X = 5;
+        _sim.Y = 3;
+        _sim.Flags = Flags.XF | Flags.YF;
+        _sim.RunStep();
+        Assert.Equal(8, (byte)_sim.X);
+        Assert.Equal(Flags.XF | Flags.YF, _sim.Flags);
     }
 
     [Fact]
@@ -453,7 +467,7 @@ public class TtlCalcSimTests
     public void LoadProg_ValidStream_ShouldSucceed()
     {
         using var stream = new MemoryStream(Enumerable.Repeat(new byte[] { 0x01, 0x02 }, 0x1000).SelectMany(x => x).ToArray());
-        _sim.LoadProg(stream, 0);
+        _sim.LoadProg(stream);
         Assert.All(_sim.Prog, op => Assert.Equal(Operation.FromUInt16(0x0201), op));
         Assert.Equal(stream.Length, stream.Position);
     }

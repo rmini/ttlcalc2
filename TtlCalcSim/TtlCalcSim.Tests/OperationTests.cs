@@ -246,7 +246,20 @@ public class OperationTests
     }
 
     [Fact]
-    public void Disassemble_WeirdAluOp_ShouldReturnCorrectString()
+    public void Disassemble_MovXMemHL_ShouldReturnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Mem,
+            Dst = Dst.X,
+            ZeroPageAddr = false,
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("MOV X, Mem[HL]", result);
+    }
+
+    [Fact]
+    public void Disassemble_WeirdAluLogicOp_ShouldReturnCorrectString()
     {
         Operation operation = new()
         {
@@ -260,6 +273,23 @@ public class OperationTests
         };
         string result = operation.Disassemble();
         Assert.Equal("ALU[0b01111]CD X, X, Y", result);
+    }
+
+    [Fact]
+    public void Disassembly_WeirdAluArithOp_ShouldReturrnCorrectString()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Alu,
+            Dst = Dst.X,
+            IncDecHL = false,
+            UseCarryFlagInput = true,
+            AluLogicMode = true,
+            DecHLandBcd = false,
+            Imm = 0b1111
+        };
+        string result = operation.Disassemble();
+        Assert.Equal("ALU[0b11111]C X, X, Y", result);
     }
 
     [Fact]

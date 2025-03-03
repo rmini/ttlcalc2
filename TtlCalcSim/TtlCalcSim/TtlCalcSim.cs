@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TtlCalcSim;
 
-[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Members are public for future use")]
-public class TtlCalcSim(Alu alu, InputOutput inputOutput)
+public class TtlCalcSim(Alu alu, Memory mem, InputOutput inputOutput)
 {
     public readonly Operation[] Prog = new Operation[1 << 12];
-    public readonly Nybble[] Mem = new Nybble[256];
 
     public int PC
     {
@@ -38,51 +37,56 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
 
         if (op.Cond.HasValue)
         {
-            var doJmp = op.Cond switch
-            {
-                BranchCond.Never => false,
-                BranchCond.Z => (Flags & Flags.EF) != 0,
-                BranchCond.NZ => (Flags & Flags.EF) == 0,
-                BranchCond.C => (Flags & Flags.CF) != 0,
-                BranchCond.NC => (Flags & Flags.CF) == 0,
-                BranchCond.GT => (Flags & Flags.CF) == 0 && (Flags & Flags.EF) == 0,
-                BranchCond.LE => !((Flags & Flags.CF) == 0 && (Flags & Flags.EF) == 0),
-                BranchCond.Always => true,
-                _ => throw new ArgumentOutOfRangeException(nameof(op.Cond)),
-            };
-            if (doJmp)
-            {
-                PC = op.Jmp;
-            }
+            Jump(op);
             return;
         }
 
-        bool nCarryIn = !(op.UseCarryFlagInput && (Flags & Flags.CF) != 0);
         byte addr = op.ZeroPageAddr ? op.Imm : HL;
 
-        var (nCarryOut, aluOut) = alu.Evaluate(X, Y, op.Imm, op.AluLogicMode, nCarryIn, op.DecHLandBcd);
-        var z = op.Src switch
+        (var result, Flags) = op.Src switch
         {
-            Src.X => X,
-            Src.Alu => aluOut,
-            Src.IO => inputOutput.Read(addr),
-            Src.H => H,
-            Src.L => L,
-            Src.Mem => Mem[addr],
-            Src.Flags => (Nybble)(byte)Flags,
-            Src.Imm => op.Imm,
+            Src.X => (X, Flags),
+            Src.Alu => ProcessAlu(op),
+            Src.IO => (inputOutput.Read(addr), Flags),
+            Src.H => (H, Flags),
+            Src.L => (L, Flags),
+            Src.Mem => (mem[addr], Flags),
+            Src.Flags => ((Nybble)(byte)Flags, Flags),
+            Src.Imm => (op.Imm, Flags),
             _ => throw new ArgumentOutOfRangeException(nameof(op.Src))
         };
 
-        if (op.Src == Src.Alu)
-        {
-            Flags =
-                (!nCarryOut ? Flags.CF : Flags.None) |
-                ((aluOut & 0xf) == 0xf ? Flags.EF : Flags.None) |
-                ((Flags & Flags.XF) != 0 ? Flags.XF : Flags.None) |
-                ((Flags & Flags.YF) != 0 ? Flags.YF : Flags.None);
-        }
+        StoreResult(op, result, addr);
 
+        if (op.IncDecHL)
+        {
+            if (op.DecHLandBcd)
+                HL--;
+            else
+                HL++;
+        }
+    }
+
+    private (Nybble aluOut, Flags newFlags) ProcessAlu(Operation op)
+    {
+        bool nCarryIn = !(op.UseCarryFlagInput && (Flags & Flags.CF) != 0);
+        var (nCarryOut, aluOut) = alu.Evaluate(X, Y, op.Imm, op.AluLogicMode, nCarryIn, op.DecHLandBcd);
+        var newFlags = UpdateFlags(!nCarryOut, (aluOut & 0xf) == 0xf);
+
+        return (aluOut, newFlags);
+    }
+
+    private Flags UpdateFlags(bool carryOut, bool equalOut)
+    {
+        var (_, _, xFlag, yFlag) = DeconstructFlags();
+        return (carryOut ? Flags.CF : Flags.None) |
+               (equalOut ? Flags.EF : Flags.None) |
+               (xFlag ? Flags.XF : Flags.None) |
+               (yFlag ? Flags.YF : Flags.None);
+    }
+
+    private void StoreResult(Operation op, Nybble z, byte addr)
+    {
         switch (op.Dst)
         {
             case Dst.X:
@@ -101,7 +105,7 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
                 inputOutput.Write(addr, z);
                 break;
             case Dst.Mem:
-                Mem[addr] = z;
+                mem[addr] = z;
                 break;
             case Dst.Flags:
                 Flags = (Flags)(byte)z;
@@ -111,14 +115,37 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
             default:
                 throw new ArgumentOutOfRangeException(nameof(op.Dst));
         }
+    }
 
-        if (op.IncDecHL)
+    private void Jump(Operation op)
+    {
+        var (carryFlag, equalFlag, _, _) = DeconstructFlags();
+        bool greaterThan = !carryFlag && !equalFlag;
+        var doJmp = op.Cond switch
         {
-            if (op.DecHLandBcd)
-                HL--;
-            else
-                HL++;
+            BranchCond.Never => false,
+            BranchCond.Z => equalFlag,
+            BranchCond.NZ => !equalFlag,
+            BranchCond.C => carryFlag,
+            BranchCond.NC => !carryFlag,
+            BranchCond.GT => greaterThan,
+            BranchCond.LE => !greaterThan,
+            BranchCond.Always => true,
+            _ => throw new ArgumentOutOfRangeException(nameof(op.Cond)),
+        };
+        if (doJmp)
+        {
+            PC = op.Jmp;
         }
+    }
+
+    private (bool carryFlag, bool equalFlag, bool xFlag, bool yFlag) DeconstructFlags()
+    {
+        bool carryFlag = (Flags & Flags.CF) != 0;
+        bool equalFlag = (Flags & Flags.EF) != 0;
+        bool xFlag = (Flags & Flags.XF) != 0;
+        bool yFlag = (Flags & Flags.YF) != 0;
+        return (carryFlag, equalFlag, xFlag, yFlag);
     }
 
     public void LoadProg(Stream stream, UInt16 instructionStart = 0, UInt16? instructionCount = null)
@@ -133,7 +160,7 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
         {
             instructionCount = (UInt16)(Prog.Length - instructionStart);
         }
-        else if (instructionCount > Prog.Length - instructionStart)
+        else if (instructionCount.Value > Prog.Length - instructionStart)
         {
             throw new ArgumentOutOfRangeException(nameof(instructionStart),
                 "Start + Count cannot extend past end of program memory");
@@ -142,7 +169,7 @@ public class TtlCalcSim(Alu alu, InputOutput inputOutput)
         var bytes = new byte[2 * instructionCount.Value];
         stream.ReadExactly(bytes, 0, instructionCount.Value * 2);
 
-        for (int loc = 0; loc < instructionCount; loc++)
+        for (int loc = 0; loc < instructionCount.Value; loc++)
         {
             Prog[instructionStart + loc] = Operation.FromUInt16(BitConverter.ToUInt16(bytes, loc * 2));
         }
