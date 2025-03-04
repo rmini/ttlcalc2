@@ -7,7 +7,7 @@ public class Alu74181Tests
     public void Evaluate_ShouldSucceed()
     {
         var alu74181 = new Alu74181();
-        var (cn4, f) = alu74181.Evaluate(0, 0, 0, true, false);
+        var (_, f) = alu74181.Evaluate(0, 0, 0, true, false);
         Assert.Equal((byte)0xf, (byte)f);
     }
 
@@ -45,7 +45,7 @@ public class Alu74181Tests
     public void EvaluateLogic_ShouldSucceed(Nybble a, Nybble b, Nybble s, bool m, bool cn, Nybble expected)
     {
         var alu74181 = new Alu74181();
-        var (cn4, f) = alu74181.Evaluate(a, b, s, m, cn);
+        var (_, f) = alu74181.Evaluate(a, b, s, m, cn);
         Assert.Equal((byte)expected, (byte)f);
     }
 

@@ -276,7 +276,7 @@ public class OperationTests
     }
 
     [Fact]
-    public void Disassembly_WeirdAluArithOp_ShouldReturrnCorrectString()
+    public void Disassembly_WeirdAluArithOp_ShouldReturnCorrectString()
     {
         Operation operation = new()
         {
@@ -345,22 +345,22 @@ public class OperationTests
     }
 
     [Fact]
-    public void Disassemble_InvalidDst_ThrowsArgumentOutOfRangeException()
+    public void Disassemble_InvalidDst_ThrowsInvalidEnumValueException()
     {
         Operation operation = new()
         {
             Dst = (Dst)0xFF
         };
-        Assert.Throws<ArgumentOutOfRangeException>(() => operation.Disassemble());
+        Assert.Throws<InvalidEnumValueException>(() => operation.Disassemble());
     }
 
     [Fact]
-    public void Disassemble_InvalidSrc_ThrowsArgumentOutOfRangeException()
+    public void Disassemble_InvalidSrc_ThrowsInvalidEnumValueException()
     {
         Operation operation = new()
         {
             Src = (Src)0xFF
         };
-        Assert.Throws<ArgumentOutOfRangeException>(() => operation.Disassemble());
+        Assert.Throws<InvalidEnumValueException>(() => operation.Disassemble());
     }
 }

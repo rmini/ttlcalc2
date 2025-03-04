@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 
 namespace TtlCalcSim;
 
@@ -53,7 +51,7 @@ public class TtlCalcSim(Alu alu, Memory mem, InputOutput inputOutput)
             Src.Mem => (mem[addr], Flags),
             Src.Flags => ((Nybble)(byte)Flags, Flags),
             Src.Imm => (op.Imm, Flags),
-            _ => throw new ArgumentOutOfRangeException(nameof(op.Src))
+            _ => throw new InvalidEnumValueException(typeof(Src), op.Src)
         };
 
         StoreResult(op, result, addr);
@@ -113,7 +111,7 @@ public class TtlCalcSim(Alu alu, Memory mem, InputOutput inputOutput)
             case Dst.None:
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(op.Dst));
+                throw new InvalidEnumValueException(typeof(Dst), op.Dst);
         }
     }
 
@@ -131,7 +129,7 @@ public class TtlCalcSim(Alu alu, Memory mem, InputOutput inputOutput)
             BranchCond.GT => greaterThan,
             BranchCond.LE => !greaterThan,
             BranchCond.Always => true,
-            _ => throw new ArgumentOutOfRangeException(nameof(op.Cond)),
+            _ => throw new InvalidEnumValueException(typeof(BranchCond), op.Cond),
         };
         if (doJmp)
         {

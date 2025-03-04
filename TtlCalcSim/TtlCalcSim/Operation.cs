@@ -166,7 +166,7 @@ public readonly record struct Operation
             Src.Mem => "Mem",
             Src.Flags => "Flags",
             Src.Imm => $"#0x{Imm:X1}",
-            _ => throw new ArgumentOutOfRangeException(nameof(Src))
+            _ => throw new InvalidEnumValueException(typeof(Src), Src)
         };
 
         if (Src is Src.IO or Src.Mem)
@@ -200,7 +200,7 @@ public readonly record struct Operation
             Dst.Mem => "Mem",
             Dst.Flags => "Flags",
             Dst.None => "NOP",
-            _ => throw new ArgumentOutOfRangeException()
+            _ => throw new InvalidEnumValueException(typeof(Dst), Dst)
         };
 
         if (Dst is Dst.IO or Dst.Mem)

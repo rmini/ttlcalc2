@@ -429,24 +429,24 @@ public class TtlCalcSimTests
     }
 
     [Fact]
-    public void RunStep_InvalidCond_ShouldThrowArgumentOutOfRangeException()
+    public void RunStep_InvalidCond_ShouldThrowInvalidEnumValueException()
     {
         _sim.Prog[0] = new Operation { Cond = (BranchCond)999 };
-        Assert.Throws<ArgumentOutOfRangeException>(() => _sim.RunStep());
+        Assert.Throws<InvalidEnumValueException>(() => _sim.RunStep());
     }
 
     [Fact]
-    public void RunStep_InvalidSrc_ShouldThrowArgumentOutOfRangeException()
+    public void RunStep_InvalidSrc_ShouldThrowInvalidEnumValueException()
     {
         _sim.Prog[0] = new Operation { Src = (Src)999, Dst = Dst.None };
-        Assert.Throws<ArgumentOutOfRangeException>(() => _sim.RunStep());
+        Assert.Throws<InvalidEnumValueException>(() => _sim.RunStep());
     }
 
     [Fact]
-    public void RunStep_InvalidDst_ShouldThrowArgumentOutOfRangeException()
+    public void RunStep_InvalidDst_ShouldThrowInvalidEnumValueException()
     {
         _sim.Prog[0] = new Operation { Src = Src.X, Dst = (Dst)999 };
-        Assert.Throws<ArgumentOutOfRangeException>(() => _sim.RunStep());
+        Assert.Throws<InvalidEnumValueException>(() => _sim.RunStep());
     }
 
     [Fact]

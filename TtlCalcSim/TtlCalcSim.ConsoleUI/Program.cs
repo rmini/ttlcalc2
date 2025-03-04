@@ -20,9 +20,9 @@ public static class Program
 
     private static readonly int[] DisplayDigitLives = new int[14];
     private static readonly byte[] DisplayDigits = new byte[14];
-    private static byte displayDp = 0;
-    private static byte displayIndicators = 0;
-    private static byte displayNxsel = 0;
+    private static byte _displayDp = 0;
+    private static byte _displayIndicators = 0;
+    private static byte _displayNxsel = 0;
     private static readonly bool[] Breakpoints = new bool[4096];
     private static bool _running = false;
     private static bool _breakOnJump = false;
@@ -38,17 +38,17 @@ public static class Program
             Sim.LoadProg(fs);
         }
 
-        InputOutput.AddOutputHandler(0, 0, (_, val) => displayNxsel = val);
+        InputOutput.AddOutputHandler(0, 0, (_, val) => _displayNxsel = val);
         InputOutput.AddOutputHandler(0, 1, (_, val) =>
         {
-            if (displayNxsel < DisplayDigits.Length)
+            if (_displayNxsel < DisplayDigits.Length)
             {
-                DisplayDigitLives[displayNxsel] = MultiplexedDigitLifeTicks;
-                DisplayDigits[displayNxsel] = val;
+                DisplayDigitLives[_displayNxsel] = MultiplexedDigitLifeTicks;
+                DisplayDigits[_displayNxsel] = val;
             }
         });
-        InputOutput.AddOutputHandler(0, 2, (_, val) => displayDp = val);
-        InputOutput.AddOutputHandler(0, 3, (_, val) => displayIndicators = val);
+        InputOutput.AddOutputHandler(0, 2, (_, val) => _displayDp = val);
+        InputOutput.AddOutputHandler(0, 3, (_, val) => _displayIndicators = val);
 
         Console.Clear();
 
@@ -364,26 +364,26 @@ public static class Program
         Console.SetCursorPosition(0, 1);
 
         Console.Write("Display: "); //"-0.0.0.0.0.0.0.0.0.0.0.0.  -00   Error o  Busy o");
-        WriteWithColor((displayIndicators & IndNegF) != 0 ? "-" : " ", Color.DigitBright);
+        WriteWithColor((_displayIndicators & IndNegF) != 0 ? "-" : " ", Color.DigitBright);
         for (var i = 0; i < DisplayDigits.Length; i++)
         {
             var digit = DisplayDigits[i];
             WriteWithColor(digit <= 9 ? $"{digit}" : " ", GetDigitColor(i));
 
             if (i < 12)
-                WriteWithColor(displayDp == i ? "." : " ", Color.DigitBright);
+                WriteWithColor(_displayDp == i ? "." : " ", Color.DigitBright);
             if (i == 12)
             {
                 Console.Write("  ");
-                WriteWithColor((displayIndicators & IndNegE) != 0 ? "-" : " ", Color.DigitBright);
+                WriteWithColor((_displayIndicators & IndNegE) != 0 ? "-" : " ", Color.DigitBright);
             }
         }
 
         Console.Write("   Error ");
-        var error = (displayIndicators & IndError) != 0;
+        var error = (_displayIndicators & IndError) != 0;
         WriteWithColor(error ? "*" : "o", error ? Color.DigitBright : Color.DigitDecayed);
         Console.Write("  Busy ");
-        var busy = (displayIndicators & IndBusy) != 0;
+        var busy = (_displayIndicators & IndBusy) != 0;
         WriteWithColor(busy ? "*" : "o", busy ? Color.DigitBright : Color.DigitDecayed);
     }
 
@@ -451,14 +451,14 @@ public static class Program
 
     private static void DoWithSavedCursorPosition([InstantHandle] Action action)
     {
-        var savedPos = Console.GetCursorPosition();
+        var (savedLeft, savedTop) = Console.GetCursorPosition();
         try
         {
             action();
         }
         finally
         {
-            Console.SetCursorPosition(savedPos.Left, savedPos.Top);
+            Console.SetCursorPosition(savedLeft, savedTop);
         }
     }
 

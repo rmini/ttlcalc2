@@ -14,7 +14,7 @@ public class Alu74181
     public const byte Nand = 4;
     public const byte Xnor = 9;
 
-    public (bool cn4, Nybble f) Evaluate(Nybble a, Nybble b, Nybble s, bool m, bool cn)
+    public virtual (bool cn4, Nybble f) Evaluate(Nybble a, Nybble b, Nybble s, bool m, bool cn)
     {
         var (s0, s1, s2, s3) = UnpackFunctionSelect(s);
 
