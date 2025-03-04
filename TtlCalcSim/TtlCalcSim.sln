@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtlCalcSim", "TtlCalcSim\Tt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtlCalcSim.Tests", "TtlCalcSim.Tests\TtlCalcSim.Tests.csproj", "{39C43839-C5F4-4A67-B211-F809CE2114E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtlCalcSim.ConsoleUI", "TtlCalcSim.ConsoleUI\TtlCalcSim.ConsoleUI.csproj", "{4977283B-0EA6-40CD-9676-255315B652F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{39C43839-C5F4-4A67-B211-F809CE2114E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39C43839-C5F4-4A67-B211-F809CE2114E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39C43839-C5F4-4A67-B211-F809CE2114E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4977283B-0EA6-40CD-9676-255315B652F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4977283B-0EA6-40CD-9676-255315B652F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4977283B-0EA6-40CD-9676-255315B652F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4977283B-0EA6-40CD-9676-255315B652F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
