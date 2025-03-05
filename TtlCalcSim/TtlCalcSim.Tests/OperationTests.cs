@@ -212,7 +212,7 @@ public class OperationTests
             IncDecHL = true
         };
         string result = operation.Disassemble();
-        Assert.Equal("MOV Mem[0x0], IO[0x0]; HL++", result);
+        Assert.Equal("MOV(HL++) Mem[0x0], IO[0x0]", result);
     }
 
     [Fact]
@@ -315,7 +315,7 @@ public class OperationTests
         };
 
         string result = operation.Disassemble();
-        Assert.Equal("NOP; HL++", result);
+        Assert.Equal("NOP(HL++)", result);
     }
 
     [Fact]

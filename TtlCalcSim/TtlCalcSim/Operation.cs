@@ -146,39 +146,40 @@ public readonly record struct Operation
                 : throw new InvalidEnumValueException(typeof(BranchCond), Cond.Value);
         }
 
-        var suffix = IncDecHL ? $"; HL{(DecHLandBcd ? "--" : "++")}" : "";
+        var hlSuffix = IncDecHL ? $"(HL{(DecHLandBcd ? "--" : "++")})" : "";
 
-        var dst = FormatDst(ref suffix);
+        var dst = FormatDst(ref hlSuffix);
 
         if (Src == Src.Alu) 
-            return FormatAluInstruction(dst, suffix);
+            return FormatAluInstruction(dst, hlSuffix);
 
-        var src = FormatSrc(ref suffix);
+        var src = FormatSrc(ref hlSuffix);
 
         return Dst switch
         {
-            Dst.None => $"NOP{suffix}",
-            _ => $"MOV {dst}, {src}{suffix}"
+            Dst.None => $"NOP{hlSuffix}",
+            _ => $"MOV{hlSuffix} {dst}, {src}"
         };
     }
 
-    private string FormatAluInstruction(string dst, string suffix)
+    private string FormatAluInstruction(string dst, string hlSuffix)
     {
         string mnemonicSuffix = $"{(UseCarryFlagInput ? "C" : "")}{(DecHLandBcd ? "D" : "")}";
         if (AluOpToString.TryGetValue((AluLogicMode, Imm), out var mnemonic))
         {
-            return $"{mnemonic}{mnemonicSuffix} {dst}, X, Y{suffix}";
+            return $"{mnemonic}{mnemonicSuffix}{hlSuffix} {dst}, X, Y";
         }
 
         return
-            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{Imm:B04}]{mnemonicSuffix} {dst}, X, Y{suffix}";
+            $"ALU[0b{(AluLogicMode ? 1 : 0):B1}{Imm:B04}]{mnemonicSuffix}{hlSuffix} {dst}, X, Y";
     }
 
-    private string FormatSrc(ref string suffix)
+    private string FormatSrc(ref string hlSuffix)
     {
         var src = Src switch
         {
             Src.X => "X",
+            Src.Alu => throw new InvalidOperationException("ALU source should be handled by FormatAluInstruction"),
             Src.H => "H",
             Src.L => "L",
             Src.IO => "IO",
@@ -190,24 +191,24 @@ public readonly record struct Operation
 
         if (Src is Src.IO or Src.Mem)
         {
-            src += FormatAddressReference(ref suffix);
+            src += FormatAddressReference(ref hlSuffix);
         }
 
         return src;
     }
 
-    private string FormatAddressReference(ref string suffix)
+    private string FormatAddressReference(ref string hlSuffix)
     {
         if (ZeroPageAddr)
         {
             return $"[0x{Imm:X1}]";
         }
 
-        suffix = "";
+        hlSuffix = "";
         return $"[HL{(IncDecHL ? (DecHLandBcd ? "--" : "++") : "")}]";
     }
 
-    private string FormatDst(ref string suffix)
+    private string FormatDst(ref string hlSuffix)
     {
         var dst = Dst switch
         {
@@ -224,7 +225,7 @@ public readonly record struct Operation
 
         if (Dst is Dst.IO or Dst.Mem)
         {
-            dst += FormatAddressReference(ref suffix);
+            dst += FormatAddressReference(ref hlSuffix);
         }
 
         return dst;
