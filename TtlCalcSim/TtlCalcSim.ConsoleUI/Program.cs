@@ -409,7 +409,8 @@ public static class Program
             var pc = (start + i) & 0xfff;
             WriteWithColor(Breakpoints[pc] ? "*" : " ", Color.Breakpoint);
             Console.Write($"{(pc == Sim.PC ? ">" : " ")} {pc:X03}: ");
-            Console.Write(Sim.Prog[pc].Disassemble().PadRight(40));
+            Console.Write($"{Sim.Prog[pc].ToUInt16():X04} ");
+            Console.Write(Sim.Prog[pc].Disassemble().PadRight(35));
         }
     }
 

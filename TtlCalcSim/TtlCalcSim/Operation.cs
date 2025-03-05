@@ -91,6 +91,23 @@ public readonly record struct Operation
         return (UInt16)((d >> lo) & ((1 << (hi - lo + 1)) - 1));
     }
 
+    public UInt16 ToUInt16()
+    {
+        if (Cond.HasValue)
+            return (UInt16)(Jmp << 4 | (UInt16)Cond.Value << 1 | 0);
+
+        return (UInt16)(
+            (UInt16)Imm << 12 |
+            (AluLogicMode ? 1 << 11 : 0) |
+            (UseCarryFlagInput ? 1 << 10 : 0) |
+            (DecHLandBcd ? 1 << 9 : 0) |
+            (!IncDecHL ? 1 << 8 : 0) |
+            (!ZeroPageAddr ? 1 << 7 : 0) |
+            (UInt16)Dst << 4 |
+            (UInt16)Src << 1 |
+            1);
+    }
+
     public override string ToString()
     {
         return $"Cond: {Cond}, Jmp: {Jmp}, Src: {Src}, Dst: {Dst}, ZeroPageAddr: {ZeroPageAddr}, IncDecHL: {IncDecHL}, DecHLandBcd: {DecHLandBcd}, UseCarryFlagInput: {UseCarryFlagInput}, AluLogicMode: {AluLogicMode}, Imm: {Imm}";
@@ -124,7 +141,9 @@ public readonly record struct Operation
     {
         if (Cond.HasValue)
         {
-            return $"{BranchCondToString[Cond.Value]} 0x{Jmp:X03}";
+            return BranchCondToString.TryGetValue(Cond.Value, out var jmpInst)
+                ? $"{jmpInst} 0x{Jmp:X03}"
+                : throw new InvalidEnumValueException(typeof(BranchCond), Cond.Value);
         }
 
         var suffix = IncDecHL ? $"; HL{(DecHLandBcd ? "--" : "++")}" : "";

@@ -363,4 +363,62 @@ public class OperationTests
         };
         Assert.Throws<InvalidEnumValueException>(() => operation.Disassemble());
     }
+
+    [Fact]
+    public void Disassemble_InvalidCond_ThrowsInvalidEnumValueException()
+    {
+        Operation operation = new()
+        {
+            Cond = (BranchCond)0xFF
+        };
+        Assert.Throws<InvalidEnumValueException>(() => operation.Disassemble());
+    }
+
+    [Fact]
+    public void ToUInt16_Jump_ReturnsCorrectValue()
+    {
+        Operation operation = new()
+        {
+            Cond = BranchCond.Z,
+            Jmp = 0b1110_1110_1001
+        };
+        UInt16 result = operation.ToUInt16();
+        Assert.Equal(0b1110_1110_1001 << 4 | 1 << 1, result);
+    }
+
+    [Fact]
+    public void ToUInt16_NonJump_ReturnsCorrectValue()
+    {
+        Operation operation = new()
+        {
+            Src = Src.X,
+            Dst = Dst.X,
+            ZeroPageAddr = true,
+            IncDecHL = true,
+            DecHLandBcd = false,
+            UseCarryFlagInput = false,
+            AluLogicMode = false,
+            Imm = 0b1010
+        };
+        UInt16 result = operation.ToUInt16();
+        Assert.Equal(0b1010_00_000_000_000_1, result);
+    }
+
+    [Fact]
+    public void ToUInt16_NonJumpWithDifferentValues_ReturnsCorrectValue()
+    {
+        Operation operation = new()
+        {
+            Src = Src.Mem,
+            Dst = Dst.Flags,
+            ZeroPageAddr = false,
+            IncDecHL = false,
+            DecHLandBcd = true,
+            UseCarryFlagInput = true,
+            AluLogicMode = true,
+            Imm = 0b1111
+        };
+        UInt16 result = operation.ToUInt16();
+        Assert.Equal(0b1111_11_111_110_101_1, result);
+    }
 }
