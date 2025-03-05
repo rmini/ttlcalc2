@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers.Binary;
 using System.IO;
 
 namespace TtlCalcSim;
@@ -169,7 +170,7 @@ public class TtlCalcSim(Alu alu, Memory mem, InputOutput inputOutput)
 
         for (int loc = 0; loc < instructionCount.Value; loc++)
         {
-            Prog[instructionStart + loc] = Operation.FromUInt16(BitConverter.ToUInt16(bytes, loc * 2));
+            Prog[instructionStart + loc] = Operation.FromUInt16(BinaryPrimitives.ReadUInt16BigEndian(bytes.AsSpan()[(loc * 2)..]));
         }
     }
 }
