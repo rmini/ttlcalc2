@@ -39,7 +39,7 @@ public static class Program
         }
 
         InputOutput.AddOutputHandler(0, 0, (_, val) => _displayNxsel = val);
-        InputOutput.AddOutputHandler(0, 1, (_, val) =>
+        InputOutput.AddOutputHandler(1, 1, (_, val) =>
         {
             if (_displayNxsel < DisplayDigits.Length)
             {
@@ -47,8 +47,8 @@ public static class Program
                 DisplayDigits[_displayNxsel] = val;
             }
         });
-        InputOutput.AddOutputHandler(0, 2, (_, val) => _displayDp = val);
-        InputOutput.AddOutputHandler(0, 3, (_, val) => _displayIndicators = val);
+        InputOutput.AddOutputHandler(2, 2, (_, val) => _displayDp = val);
+        InputOutput.AddOutputHandler(3, 3, (_, val) => _displayIndicators = val);
 
         Console.Clear();
 
@@ -58,7 +58,7 @@ public static class Program
 
             if (_breakOnJump && Sim.Prog[Sim.PC].Cond.HasValue)
                 _running = false;
-            if (_ioHalt && Sim.Prog[Sim.PC].Src == Src.IO || Sim.Prog[Sim.PC].Dst == Dst.IO)
+            if (_ioHalt && (Sim.Prog[Sim.PC].Src == Src.IO || Sim.Prog[Sim.PC].Dst == Dst.IO))
                 _running = false;
             if (Breakpoints[Sim.PC])
                 _running = false;
@@ -70,7 +70,7 @@ public static class Program
                 if (ProcessKeyCommand())
                     break;
 
-                if (!_singleStep)
+                if (!_singleStep && !_running)
                     continue;
             }
 
@@ -372,7 +372,7 @@ public static class Program
 
             if (i < 12)
                 WriteWithColor(_displayDp == i ? "." : " ", Color.DigitBright);
-            if (i == 12)
+            if (i == 11)
             {
                 Console.Write("  ");
                 WriteWithColor((_displayIndicators & IndNegE) != 0 ? "-" : " ", Color.DigitBright);
