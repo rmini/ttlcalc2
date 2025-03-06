@@ -466,7 +466,7 @@ public class TtlCalcSimTests
     [Fact]
     public void LoadProg_ValidStream_ShouldSucceed()
     {
-        using var stream = new MemoryStream(Enumerable.Repeat(new byte[] { 0x01, 0x02 }, 0x1000).SelectMany(x => x).ToArray());
+        using var stream = new MemoryStream(Enumerable.Repeat(new byte[] { 0x02, 0x01 }, 0x1000).SelectMany(x => x).ToArray());
         _sim.LoadProg(stream);
         Assert.All(_sim.Prog, op => Assert.Equal(Operation.FromUInt16(0x0201), op));
         Assert.Equal(stream.Length, stream.Position);
@@ -476,7 +476,7 @@ public class TtlCalcSimTests
     public void LoadProg_ValidStreamWithStart_ShouldSucceed()
     {
         using var stream = new MemoryStream(
-            Enumerable.Repeat(new byte[] { 0x01, 0x02, 0x03, 0x04 }, _sim.Prog.Length / 2)
+            Enumerable.Repeat(new byte[] { 0x02, 0x01, 0x04, 0x03 }, _sim.Prog.Length / 2)
                 .SelectMany(x => x)
                 .Take((_sim.Prog.Length - 1) * 2)
                 .ToArray()
@@ -502,7 +502,7 @@ public class TtlCalcSimTests
     [Fact]
     public void LoadProg_ValidStreamWithStartAndCount_ShouldSucceed()
     {
-        using var stream = new MemoryStream([0x01, 0x02, 0x03, 0x04]);
+        using var stream = new MemoryStream([0x02, 0x01, 0x04, 0x03]);
         _sim.LoadProg(stream, 1, 1);
         Assert.Equal(new Operation(), _sim.Prog[0]);
         Assert.Equal(Operation.FromUInt16(0x0201), _sim.Prog[1]);
