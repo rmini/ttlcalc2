@@ -48,6 +48,10 @@ customasm fib.asm
 ```
 This generates `fib.bin` which you can then load into the simulator and run.
 
+## Documentation
+
+The `doc` directory contains documentation for the TtlCalc2 project.
+
 ## Simulation
 
 The `TtlCalcSim` directory contains the simulation tools for the TtlCalc2 project. The simulator is implemented as a C#/.NET 9.0 console application.
