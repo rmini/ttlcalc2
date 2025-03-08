@@ -64,12 +64,10 @@ numloop:
     mov Mem[#digcount], x 
 digloop:
     mov x, Mem[#digcount]
-    mov y, #0xf
-    add x, x, y
+    dec x, x
     je .digsdone
     mov Mem[#digcount], x
 
-    mov Flags, Mem[#tmpfl]
     mov h, Mem[#src1h]
     mov l, Mem[#src1l]
     mov x, Mem[hl++]
@@ -82,14 +80,13 @@ digloop:
     mov Mem[#src2l], l
     mov h, Mem[#dsth]
     mov l, Mem[#dstl]
+    mov Flags, Mem[#tmpfl]
     addcd Mem[hl], x, y
-    nop(hl++)
+    mov(hl++) Mem[#tmpfl], Flags
     mov Mem[#dsth], h
     mov Mem[#dstl], l
-    mov Mem[#tmpfl], Flags
     jmp digloop
 .digsdone:
     mov x, h
-    mov y, #0xf
-    xor None, x, y
+    dec None, x
     jne numloop

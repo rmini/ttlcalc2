@@ -17,6 +17,10 @@
 #fn hi(addr) => (addr >> 4)`4
 #fn lo(addr) => addr`4
 
+; TODO: Use a mask to flag conflicts between the two operands
+; and the HL mnemonic suffix, as well as immediate values,
+; the ALU operation, and a zero page reference
+
 ; 4 bits of immediate, 3 bits of hldir/ninchl/addrsel, 3 bits of src
 #subruledef movsrc
 {
@@ -79,6 +83,19 @@
     xnor => 9`4
 }
 
+#subruledef unaryxop
+{
+    shl => 12`4 @ 0b0
+    dec => 15`4 @ 0b0
+    not => 0`4 @ 0b1
+}
+
+#subruledef unaryyop
+{
+    mov => 10`4 @ 0b1
+    not => 5`4 @ 0b1
+}
+
 #subruledef jmpcond 
 {
     z => 1`3
@@ -138,5 +155,20 @@
         op @ 0b10 @ hldir @ ninchl @ addrsel @ d`3 @ 1`3 @ 0b1
     }
 
+    {op:unaryxop} {d: dst}, x => asm { {op}_ {d}, x }
+    {op:unaryxop}{hl:hl} {d:dst}, x => {
+        hldir = (hl[1:1] | d[5:5])`1
+        ninchl = (hl[0:0] & d[4:4])`1
+        addrsel = d[3:3]
+        op @ 0b0 @ hldir @ ninchl @ addrsel @ d`3 @ 1`3 @ 0b1
+    }
+
+    {op:unaryyop} {d: dst}, x => asm { {op}_ {d}, y }
+    {op:unaryyop}{hl:hl} {d:dst}, y => {
+        hldir = (hl[1:1] | d[5:5])`1
+        ninchl = (hl[0:0] & d[4:4])`1
+        addrsel = d[3:3]
+        op @ 0b0 @ hldir @ ninchl @ addrsel @ d`3 @ 1`3 @ 0b1        
+    }
 }
 
