@@ -65,11 +65,11 @@ The [`doc`](doc/) directory contains documentation for the TtlCalc2 project.
 
 ## Simulation
 
-The `TtlCalcSim` directory contains the simulation tools for the TtlCalc2 project. The simulator is implemented as a C#/.NET 9.0 console application.
+The [`TtlCalcSim`](TtlCalcSim/) directory contains the simulation tools for the TtlCalc2 project. The simulator is implemented as a C#/.NET 9.0 console application.
 
-- `TtlCalcSim/`: Core simulation library.
-- `TtlCalcSim.ConsoleUI/`: Console-based user interface for the simulator.
-- `TtlCalcSim.Tests/`: Unit tests for the simulation library.
+- [`TtlCalcSim/`](TtlCalcSim/TtlCalcSim/): Core simulation library.
+- [`TtlCalcSim.ConsoleUI/`](TtlCalcSim/TtlCalcSim.ConsoleUI/): Console-based user interface for the simulator.
+- [`TtlCalcSim.Tests/`](TtlCalcSim/TtlCalcSim.Tests/): Unit tests for the simulation library.
 
 ### Building the Simulator
 
