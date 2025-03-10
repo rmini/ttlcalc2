@@ -10,20 +10,31 @@ The goal of the original was to gain experience designing and implementing a pro
 
 This repository contains the hardware and software components for the TtlCalc2 project, including simulation tools, assembly code, and documentation.
 
+## Board renders
+
+### Main logic board (processor)
+![Main logic board render](doc/logicboardrender.png)
+
+### Display driver board
+![Display driver board render](doc/displaydriverboardrender.png)
+
+### Front panel display board (Nixies and neons)
+![Front panel display board render](doc/frontpanelboardrender.png)
+
 ## Directory Structure
 
- * `hw/`: KiCad schematic and PCB designs for the hardware
- * `sw/`: Software for the calculator (microinstruction ROMs)
- * `doc/`: Design and implementation documentation
- * `TtlCalcSim/`: Simulator for the calculator hardware
+ * [`hw/`](hw/): KiCad schematic and PCB designs for the hardware
+ * [`sw/`](sw/): Software for the calculator (microinstruction ROMs)
+ * [`doc/`](doc/): Design and implementation documentation
+ * [`TtlCalcSim/`](TtlCalcSim/): Simulator for the calculator hardware
 
 ## Hardware
 
-The `hw` directory contains KiCad project files for the TtlCalc2 hardware design.
+The [`hw`](hw) directory contains KiCad project files for the TtlCalc2 hardware design.
 
-- `ttlcalc2/`: Logic board hardware design files.
-- `ttlcalc2_display/`: Display driver module design files.
-- `ttlcalc2_front/`: Front panel design files.
+- [`ttlcalc2/`](hw/ttlcalc2/): Logic board hardware design files.
+- [`ttlcalc2_display/`](hw/ttlcalc2_display/): Display driver module design files.
+- [`ttlcalc2_front/`](hw/ttlcalc2_front/): Front panel design files.
 
 TODO: The keyboard and keyboard interface still needs to be designed.
 
@@ -33,10 +44,10 @@ The `hw/ttlcalc2/gerbers` directory contains the Gerber files for PCB manufactur
 
 ## Software
 
-The `sw` directory contains assembly code for the TtlCalc2 project. This project uses the [customasm](https://github.com/hlorenzi/customasm) assembler to generate the microcode stream.
+The [`sw`](sw/) directory contains assembly code for the TtlCalc2 project. This project uses the [customasm](https://github.com/hlorenzi/customasm) assembler to generate the microcode stream.
 
-- `ttlcalc2.asm`: Mnemonic definitions for the TtlCalc2 microcode.
-- `fib.asm`: Assembly code for calculating Fibonacci numbers.
+- [`ttlcalc2.asm`](sw/ttlcalc2.asm): Mnemonic definitions for the TtlCalc2 microcode.
+- [`fib.asm`](sw/fib.asm): Assembly code for calculating Fibonacci numbers.
 
 TODO: Port original ttlcalc assembly source code to new customasm syntax.
 
@@ -50,7 +61,7 @@ This generates `fib.bin` which you can then load into the simulator and run.
 
 ## Documentation
 
-The `doc` directory contains documentation for the TtlCalc2 project.
+The [`doc`](doc/) directory contains documentation for the TtlCalc2 project.
 
 ## Simulation
 
