@@ -44,7 +44,7 @@ The `hw/ttlcalc2/gerbers` directory contains the Gerber files for PCB manufactur
 
 ## Software
 
-The [`sw`](sw/) directory contains assembly code for the TtlCalc2 project. This project uses the [customasm](https://github.com/hlorenzi/customasm) assembler to generate the microcode stream.
+The [`sw`](sw/) directory contains assembly code for the TtlCalc2 project. This project uses the [customasm](https://github.com/hlorenzi/customasm) assembler (v0.14.0 or later) to generate the microcode stream.
 
 - [`ttlcalc2.asm`](sw/ttlcalc2.asm): Mnemonic definitions for the TtlCalc2 microcode.
 - [`fib.asm`](sw/fib.asm): Assembly code for calculating Fibonacci numbers.

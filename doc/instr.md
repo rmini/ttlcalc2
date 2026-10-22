@@ -20,7 +20,7 @@ Instruction bits are numbered from least-significant bit (0) to most-significant
 | 4 | JNC | CF==0 |
 | | JGE | |
 | 5 | JGT | CF==0 && EF==0 |
-| 6 | JLT | CF==1 \|\| EF==1 |
+| 6 | JLE | CF==1 \|\| EF==1 |
 | 7 | JMP | Always |
 
 The comparisons are meant to be used with the `SUB` instruction with the incoming carry flag clear.

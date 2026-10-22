@@ -17,111 +17,104 @@
 #fn hi(addr) => (addr >> 4)`4
 #fn lo(addr) => addr`4
 
-; immset = [12:12]
-; imm = [11:8]
-; hlincset = [7:7]
-; addrselset = [6:6]
-; hldir = [5:5]; ninchl = [4:4]
-; addrsel = [3:3]
-; src = [2:0]
+#fn bit(b) => b ? 1`1 : 0`1
+
+; HL side effect
+;   set: HL is incremented/decremented
+;   dir: 0 = increment, 1 = decrement
+#fn hl_none() => struct { set = false, dir = 0`1 }
+#fn hl_step(dir) => struct { set = true, dir = dir`1 }
+#fn hl_ok(a, b) => !(a.set && b.set) || a.dir == b.dir
+
+; Operand (source or destination)
+;   opsel:   3-bit operand select (destination/source code)
+;   immset:  operand uses the immediate field
+;   imm:     4-bit immediate value
+;   hl:      HL side effect
+;   addrset: operand drives address selection
+;   addrsel: 0 = immediate address, 1 = HL address
+#fn operand(opsel, immset, imm, hl, addrset, addrsel) => struct {
+    opsel = opsel`3, immset = immset, imm = imm`4,
+    hl = hl, addrset = addrset, addrsel = addrsel`1
+}
+#fn op_reg(opsel)         => operand(opsel, false, 0, hl_none(), false, 1)
+#fn op_imm(opsel, i)      => operand(opsel, true,  i, hl_none(), false, 1)
+#fn op_absaddr(opsel, a)  => operand(opsel, true,  a, hl_none(), true,  0)
+#fn op_hladdr(opsel, hl)  => operand(opsel, false, 0, hl,        true,  1)
+
+#subruledef hl
+{
+    (hl++) => hl_step(0)
+    (hl--) => hl_step(1)
+}
+
+#subruledef addr_hl
+{
+    hl => hl_none()
+    hl++ => hl_step(0)
+    hl-- => hl_step(1)
+}
+
+; operands valid as both source and destination
+#subruledef operand
+{
+    X => op_reg(0)
+    ; ALU => 1
+    H => op_reg(2)
+    L => op_reg(3)
+    IO[#{addr:u4}] => op_absaddr(4, addr)
+    IO[{hl:addr_hl}] => op_hladdr(4, hl)
+    Mem[#{addr:u4}] => op_absaddr(5, addr)
+    Mem[{hl:addr_hl}] => op_hladdr(5, hl)
+    Flags => op_reg(6)
+}
+
 #subruledef movsrc
 {
-    X => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 0`3
-    ; ALU => 1`3
-    H => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 2`3
-    L => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 3`3
-    IO[#{addr:u4}] => 0b1 @ addr @ 0b01 @ 0b010 @ 4`3
-    IO[{hl:internal_hl}] => 0b0 @ 0`4 @ hl @ 4`3
-    Mem[#{addr:u4}] => 0b1 @ addr @ 0b01 @ 0b010 @ 5`3
-    Mem[{hl:internal_hl}] => 0b0 @ 0`4 @ hl @ 5`3
-    Flags => 0b0 @ 0`4 @ 0b011 @ 6`3
-    #{i:u4} => 0b1 @ i @ 0b011 @ 7`3
+    {o:operand} => o
+    #{i:u4} => op_imm(7, i)
 }
 
-; immset = [12:12]
-; imm = [11:8]
-; hlincset = [7:7]
-; addrselset = [6:6]
-; hldir = [5:5]; ninchl = [4:4]
-; addrsel = [3:3]
-; dst = [2:0]
 #subruledef dst
 {
-    X => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 0`3
-    Y => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 1`3
-    H => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 2`3
-    L => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 3`3
-    IO[#{addr:u4}] => 0b1 @ addr @ 0b01 @ 0b010 @ 4`3
-    IO[{hl:internal_hl}] => 0b0 @ 0`4 @ hl @ 4`3
-    Mem[#{addr:u4}] => 0b1 @ addr @ 0b01 @ 0b010 @ 5`3
-    Mem[{hl:internal_hl}] => 0b0 @ 0`4 @ hl @ 5`3
-    Flags => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 6`3
-    None => 0b0 @ 0`4 @ 0b00 @ 0b011 @ 7`3
+    {o:operand} => o
+    Y => op_reg(1)
+    None => op_reg(7)
 }
 
-; hlincset = [2:2]
-; hldir = [1:1]
-; ninchl = [0:0]
-#subruledef hl 
+; ALU operation
+;   alu:   4-bit ALU function select
+;   logic: 0 = arithmetic mode, 1 = logic mode
+#subruledef arithop
 {
-    _ => 0b001
-    (hl++) => 0b100
-    (hl--) => 0b110
+    sub => struct { alu = 6`4, logic = 0`1 }
+    add => struct { alu = 9`4, logic = 0`1 }
 }
 
-; hlincset = [4:4]
-; addrselset = [3:3]
-; hldir = [2:2]
-; ninchl = [1:1]
-; addrsel = [0:0]
-#subruledef internal_hl
+#subruledef logicop
 {
-    hl => 0b01 @ 0b011
-    hl++ => 0b11 @ 0b001
-    hl-- => 0b11 @ 0b101
-}
-
-#subruledef arithop 
-{
-    ; alumode Arith
-    sub => 6`4
-    add => 9`4
-}
-
-#subruledef logicop 
-{
-    ; alumode Logic
-    or => 14`4
-    and => 11`4
-    xor => 6`4
-    nor => 1`4
-    nand => 4`4
-    xnor => 9`4
+    or   => struct { alu = 14`4, logic = 1`1 }
+    and  => struct { alu = 11`4, logic = 1`1 }
+    xor  => struct { alu = 6`4,  logic = 1`1 }
+    nor  => struct { alu = 1`4,  logic = 1`1 }
+    nand => struct { alu = 4`4,  logic = 1`1 }
+    xnor => struct { alu = 9`4,  logic = 1`1 }
 }
 
 #subruledef unaryxop
 {
-    shl => 0
-    dec => 1
-    not => 2
+    shl => struct { alu = 12`4, logic = 0`1 }
+    dec => struct { alu = 15`4, logic = 0`1 }
+    not => struct { alu = 0`4,  logic = 1`1 }
 }
 
 #subruledef unaryyop
 {
-    mov => 0
-    not => 1
+    mov => struct { alu = 10`4, logic = 1`1 }
+    not => struct { alu = 5`4,  logic = 1`1 }
 }
 
-#subruledef unaryop
-{
-    shlx => 12`4 @ 0b0
-    decx => 15`4 @ 0b0
-    notx => 0`4 @ 0b1
-    movy => 10`4 @ 0b1
-    noty => 5`4 @ 0b1
-}
-
-#subruledef jmpcond 
+#subruledef jmpcond
 {
     z => 1`3
     e => 1`3
@@ -132,16 +125,43 @@
     nc => 4`3
     ge => 4`3
     gt => 5`3
-    lt => 6`3
+    le => 6`3
     mp => 7`3 ; heh heh
 }
 
-#subruledef bcdcarry 
+; carry: carry in from previous op
+; bcd:   BCD mode (also the required HL direction)
+#fn dc_none() => struct { carry = 0`1, bcd = 0`1 }
+#subruledef bcdcarry
 {
-    _ => 0b00
-    c => 0b10
-    d => 0b01
-    cd => 0b11
+    c  => struct { carry = 1`1, bcd = 0`1 }
+    d  => struct { carry = 0`1, bcd = 1`1 }
+    cd => struct { carry = 1`1, bcd = 1`1 }
+}
+
+#fn mov_encode(hl, d, s) => {
+    $assert(hl_ok(hl, d.hl), "Instruction suffix and destination cannot both increment or decrement HL")
+    $assert(hl_ok(hl, s.hl), "Instruction suffix and source cannot both increment or decrement HL")
+    $assert(hl_ok(d.hl, s.hl), "Destination and source cannot both increment or decrement HL")
+    $assert(!(d.addrset && s.addrset) || d.addrsel == s.addrsel, "Destination and source memory address selection must match")
+    $assert(!(d.immset && s.immset) || d.imm == s.imm, "Destination and source immediate values must match")
+
+    imm = d.immset ? d.imm : s.imm
+    hldir = hl.dir | d.hl.dir | s.hl.dir
+    ninchl = bit(!(hl.set || d.hl.set || s.hl.set))
+    addrsel = d.addrsel & s.addrsel
+    imm @ 0b00 @ hldir`1 @ ninchl @ addrsel`1 @ d.opsel @ s.opsel @ 0b1
+}
+
+; bit 10 is carry, bit 9 is BCD mode / HL direction
+#fn alu_encode(op, dc, hl, d) => {
+    $assert(hl_ok(hl, d.hl), "Instruction suffix and destination cannot both increment or decrement HL")
+    $assert(!hl.set || hl.dir == dc.bcd, "Instruction suffix HL increment/decrement must match BCD mode")
+    $assert(!d.hl.set || d.hl.dir == dc.bcd, "Destination HL increment/decrement must match BCD mode")
+    $assert(!d.immset || d.imm == op.alu, "Destination immediate value must match ALU operation")
+
+    ninchl = bit(!(hl.set || d.hl.set))
+    op.alu @ op.logic @ dc.carry @ dc.bcd @ ninchl @ d.addrsel @ d.opsel @ 1`3 @ 0b1
 }
 
 #ruledef
@@ -152,117 +172,23 @@
     j{cond: jmpcond} {addr: u12} => addr @ cond @ 0b0
 
     ; non-jump instructions (bit 0 = 1)
-    nop{hl: hl} => 0`4 @ 0b00 @ hl[1:0] @ 0b0 @ 7`3 @ 0`3 @ 0b1
+    ; nop(hl++) = mov(hl++) None, X
+    nop{hl: hl} => mov_encode(hl, op_reg(7), op_reg(0))
 
-    mov {d: dst}, {s: movsrc} => asm { mov_ {d}, {s} }
-    mov{hl: hl} {d: dst}, {s: movsrc} => {
-        hl_hlincset = hl[2:2]
-        d_hlincset = d[7:7]
-        s_hlincset = s[7:7]
+    mov       {d: dst}, {s: movsrc} => mov_encode(hl_none(), d, s)
+    mov{hl:hl} {d: dst}, {s: movsrc} => mov_encode(hl, d, s)
 
-        hl_hldir = hl[1:1]
-        d_hldir = d[5:5]
-        s_hldir = s[5:5]
+    {op:arithop}                     {d:dst}, x, y => alu_encode(op, dc_none(), hl_none(), d)
+    {op:arithop}{hl:hl}              {d:dst}, x, y => alu_encode(op, dc_none(), hl, d)
+    {op:arithop}{dc:bcdcarry}        {d:dst}, x, y => alu_encode(op, dc, hl_none(), d)
+    {op:arithop}{dc:bcdcarry}{hl:hl} {d:dst}, x, y => alu_encode(op, dc, hl, d)
 
-        hl_ninchl = hl[0:0]
-        d_ninchl = d[4:4]
-        s_ninchl = s[4:4]
+    {op:logicop}         {d:dst}, x, y => alu_encode(op, dc_none(), hl_none(), d)
+    {op:logicop}{hl:hl}  {d:dst}, x, y => alu_encode(op, dc_none(), hl, d)
 
-        assert((hl_hlincset == 0 && d_hlincset == 0) || (hl_hlincset != d_hlincset) || (hl_hldir == d_hldir), "Instruction suffix and destination cannot both increment or decrement HL")
-        assert((hl_hlincset == 0 && s_hlincset == 0) || (hl_hlincset != s_hlincset) || (hl_hldir == s_hldir), "Instruction suffix and source cannot both increment or decrement HL")
-        assert((d_hlincset == 0 && s_hlincset == 0) || (d_hlincset != s_hlincset) || (d_hldir == s_hldir), "Destination and source cannot both increment or decrement HL")
+    {op:unaryxop}        {d:dst}, x => alu_encode(op, dc_none(), hl_none(), d)
+    {op:unaryxop}{hl:hl} {d:dst}, x => alu_encode(op, dc_none(), hl, d)
 
-        d_addrselset = d[6:6]
-        s_addrselset = s[6:6]
-
-        d_addrsel = d[3:3]
-        s_addrsel = s[3:3]
-
-        assert((d_addrselset == 0 && s_addrselset == 0) || (d_addrselset != s_addrselset) || (d_addrsel == s_addrsel), "Destination and source memory address selection must match")
-
-        d_immset = d[12:12]
-        s_immset = s[12:12]
-
-        d_imm = d[11:8]
-        s_imm = s[11:8]
-        assert((d_immset == 0 && s_immset == 0) || (d_immset != s_immset) || (d_imm == s_imm), "Destination and source immediate values must match")
-
-        hldir = (hl_hldir | d_hldir | s_hldir)`1
-        ninchl = (hl_ninchl & d_ninchl & s_ninchl)`1
-        addrsel = (d_addrsel & s_addrsel)`1
-        imm = (d[9:6] | s[9:6])`4
-        imm @ 0b00 @ hldir @ ninchl @ addrsel @ d`3 @ s`3 @ 0b1
-    }
-
-    {op:arithop} {d: dst}, x, y => asm { {op}__ {d}, x, y }
-    {op:arithop}{dc:bcdcarry} {d: dst}, x, y => asm { {op}{dc}_ {d}, x, y }
-    {op:arithop}{dc:bcdcarry}{hl:hl} {d:dst}, x, y => {
-        hl_hlincset = hl[2:2]
-        d_hlincset = d[7:7]
-
-        hl_hldir = hl[1:1]
-        d_hldir = d[5:5]
-
-        bcd = dc[0:0]
-        assert((hl_hlincset == 0 && d_hlincset == 0) || (hl_hlincset != d_hlincset) || (hl_hldir == d_hldir), "Instruction suffix and destination cannot both increment or decrement HL")
-        assert((hl_hlincset == 0) || (hl_hldir == bcd), "Instruction suffix HL increment/decrement must match BCD carry mode")
-        assert((d_hlincset == 0) || (d_hldir == bcd), "Destination HL increment/decrement must match BCD carry mode")
-
-        d_immset = d[12:12]
-        d_imm = d[11:8]
-        assert((d_immset == 0) || (d_imm == op), "Destination immediate value must match ALU operation")
-
-        ninchl = (hl[0:0] & d[4:4])`1
-        addrsel = d[3:3]
-        op @ 0b0 @ dc[1:1] @ bcd @ ninchl @ addrsel @ d`3 @ 1`3 @ 0b1
-    }
-    
-    {op:logicop} {d: dst}, x, y => asm { {op}_ {d}, x, y }
-    {op:logicop}{hl:hl} {d:dst}, x, y => {
-        hl_hlincset = hl[2:2]
-        d_hlincset = d[7:7]
-
-        hl_hldir = hl[1:1]
-        d_hldir = d[5:5]
-        assert((hl_hlincset == 0 && d_hlincset == 0) || (hl_hldir == d_hldir) , "Instruction suffix and destination cannot both increment or decrement HL")
-        assert((hl_hlincset == 0) || (hl_hldir == 0), "Instruction suffix HL decrement not supported with logic operation (BCD conflict)")
-        assert((d_hlincset == 0) || (d_hldir == 0), "Destination HL decrement not supported with logic operation (BCD conflict)")
-
-        d_immset = d[12:12]
-        d_imm = d[11:8]
-        assert((d_immset == 0) || (d_imm == op), "Destination immediate value must match ALU operation")
-
-        hldir = (hl[1:1] | d[5:5])`1
-        ninchl = (hl[0:0] & d[4:4])`1
-        addrsel = d[3:3]
-        op @ 0b10 @ hldir @ ninchl @ addrsel @ d`3 @ 1`3 @ 0b1
-    }
-
-    {op:unaryxop} {d: dst}, x => asm { {op}_ {d}, x }
-    {op:unaryxop}{hl:hl} {d:dst}, x => asm { __unaryop {op}x {hl} {d} }
-
-    {op:unaryyop} {d: dst}, y => asm { {op}_ {d}, y }
-    {op:unaryyop}{hl:hl} {d:dst}, y => asm { __unaryop {op}y {hl} {d} }
-
-    __unaryop {op:unaryop} {hl:hl} {d: dst} => {
-        hl_hlincset = hl[2:2]
-        d_hlincset = d[7:7]
-
-        hl_hldir = hl[1:1]
-        d_hldir = d[5:5]
-
-        assert((hl_hlincset == 0 && d_hlincset == 0) || (hl_hldir == d_hldir) , "Instruction suffix and destination cannot both increment or decrement HL")
-        assert((hl_hlincset == 0) || (hl_hldir == 0), "Instruction suffix HL decrement not supported with unary operation (BCD conflict)")
-        assert((d_hlincset == 0) || (d_hldir == 0), "Destination HL decrement not supported with unary operation (BCD conflict)")
-
-        d_immset = d[12:12]
-        d_imm = d[11:8]
-        assert((d_immset == 0) || (d_imm == op), "Destination immediate value must match ALU operation")
-
-        hldir = (hl[1:1] | d[5:5])`1
-        ninchl = (hl[0:0] & d[4:4])`1
-        addrsel = d[3:3]
-        op @ 0b0 @ hldir @ ninchl @ addrsel @ d`3 @ 1`3 @ 0b1                
-    }
+    {op:unaryyop}        {d:dst}, y => alu_encode(op, dc_none(), hl_none(), d)
+    {op:unaryyop}{hl:hl} {d:dst}, y => alu_encode(op, dc_none(), hl, d)
 }
-
