@@ -70,6 +70,8 @@ The [`TtlCalcSim`](TtlCalcSim/) directory contains the simulation tools for the 
 - [`TtlCalcSim/`](TtlCalcSim/TtlCalcSim/): Core simulation library.
 - [`TtlCalcSim.ConsoleUI/`](TtlCalcSim/TtlCalcSim.ConsoleUI/): Console-based user interface for the simulator.
 - [`TtlCalcSim.Tests/`](TtlCalcSim/TtlCalcSim.Tests/): Unit tests for the simulation library.
+- [`TtlCalcSim.Testing/`](TtlCalcSim/TtlCalcSim.Testing/): Helpers for testing assembly programs in the simulator.
+- [`TtlCalcSim.ProgramTests/`](TtlCalcSim/TtlCalcSim.ProgramTests/): Tests that assemble programs from [`sw`](sw/) and run them in the simulator, including end-to-end checks of each instruction against the documented behavior.
 
 ### Building the Simulator
 
@@ -84,6 +86,23 @@ To run the unit tests, use the following command from the TtlCalcSim directory:
 ```sh
 dotnet test
 ```
+
+The program tests assemble source at test time, so they need customasm v0.14.0 or later on `PATH`, or the `CUSTOMASM` environment variable set to its location.
+
+### Testing programs
+
+`TtlCalcSim.Testing` assembles a program with customasm and loads it into a `TestMachine`, which can set up state, run to labels, and inspect results by symbol name:
+```csharp
+var m = new TestMachine(AsmProgram.AssembleSw("fib.asm"));
+m.RunUntil("numloop");                         // program labels; fails if the step limit is hit
+Assert.Equal(0x1, m.Mem["src1h"]);             // memory by address or data label
+m.RunToEnd(maxSteps: 10_000);
+Assert.Equal(832040, m.ReadNumber(0xF8, 8));   // BCD, least significant digit first
+```
+
+`StartAt("label")` begins execution elsewhere, so a loop body can be tested in isolation after setting up memory and registers.
+
+`AsmProgram.FromSource` assembles a snippet with the TtlCalc2 rules included, which is useful for testing individual instructions. I/O writes are recorded in `IoWrites`, and input is supplied with `QueueInput` or `OnInput`; reading an address with no input fails the test.
 
 ### Running the simulator
 
