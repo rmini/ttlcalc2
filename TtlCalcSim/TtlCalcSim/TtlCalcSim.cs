@@ -107,7 +107,10 @@ public class TtlCalcSim(Alu alu, Memory mem, InputOutput inputOutput)
                 mem[addr] = z;
                 break;
             case Dst.Flags:
-                Flags = (Flags)(byte)z;
+                // With an ALU source, the flags register takes the ALU's flag outputs (already
+                // set by ProcessAlu) instead of the data bus
+                if (op.Src != Src.Alu)
+                    Flags = (Flags)(byte)z;
                 break;
             case Dst.None:
                 break;

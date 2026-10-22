@@ -360,6 +360,18 @@ public class TtlCalcSimTests
     }
 
     [Fact]
+    public void RunStep_AluDstFlags_ShouldUseAluFlagsNotResult()
+    {
+        // 9 + 9 = 0x12: data result 2 would read as EF, but the ALU flag outputs are CF
+        _sim.Prog[0] = new Operation { Src = Src.Alu, Dst = Dst.Flags, Imm = Alu74181.Add };
+        _sim.X = 9;
+        _sim.Y = 9;
+        _sim.Flags = Flags.XF | Flags.YF;
+        _sim.RunStep();
+        Assert.Equal(Flags.CF | Flags.XF | Flags.YF, _sim.Flags);
+    }
+
+    [Fact]
     public void RunStep_DstNone_ShouldSucceed()
     {
         _sim.Prog[0] = new Operation { Src = Src.X, Dst = Dst.None };

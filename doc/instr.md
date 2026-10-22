@@ -90,7 +90,7 @@ Instruction bits 6..4 control which destination is set to the value on the data 
 | 6 | Flags register\* |
 | 7 | None (discard)\*\* |
 
-\* On ALU operations (source=1), the ALU output has priority over the data bus for setting the flags register.
+\* When the source is the ALU (source=1), the flags register is set from the ALU's flag outputs (carry and equal; XF and YF are unchanged) rather than from the data bus.
 
 \*\* With ALU operations, the None destination still sets the Flags register, so it is useful for comparisons. Otherwise this functions as a NOP (although if bit 8 is set to 0, HL increments/decrements as normal).
 
